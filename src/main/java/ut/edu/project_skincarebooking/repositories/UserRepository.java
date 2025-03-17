@@ -6,4 +6,6 @@ import ut.edu.project_skincarebooking.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    boolean existsByUsername(String username);
+
 }
