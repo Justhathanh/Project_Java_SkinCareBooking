@@ -2,9 +2,10 @@ package ut.edu.project_skincarebooking.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
-
+@SuperBuilder
 @MappedSuperclass
 @Data
 @NoArgsConstructor

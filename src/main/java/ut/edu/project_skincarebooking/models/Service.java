@@ -40,6 +40,13 @@ public class Service {
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Appointment> appointments;
-    public Service(Long id, String name, String description, double price) {  }
+    public Service(Long id, String serviceName, String description, double price, int duration) {
+        this.id = id;
+        this.serviceName = serviceName;
+        this.description = description;
+        this.price = price;
+        this.duration = duration;
+    }
+
 
 }

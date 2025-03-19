@@ -31,6 +31,11 @@ public class Appointment {
     @JoinColumn(name = "therapist_id", nullable = false)
     private SkinTherapist therapist;
 
+    @ManyToOne
+    @JoinColumn(name = "service_id", nullable = false)
+    private Service service;
+
+
     public void cancelAppointment() {
         // TODO: Logic hủy cuộc hẹn
     }

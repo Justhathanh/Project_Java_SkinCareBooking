@@ -3,12 +3,12 @@ import ut.edu.project_skincarebooking.models.Appointment;
 import jakarta.persistence.*;
 import lombok.*;
 import ut.edu.project_skincarebooking.interfaces.IScheduleManagement;
-
+import lombok.experimental.SuperBuilder;
 import java.util.*;
 @Entity
 @Table(name = "skin_therapists")
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class SkinTherapist extends Employee implements IScheduleManagement {
