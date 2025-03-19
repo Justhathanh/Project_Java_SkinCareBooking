@@ -5,7 +5,7 @@ import ut.edu.project_skincarebooking.models.*;
 import ut.edu.project_skincarebooking.repositories.*;
 
 import java.util.*;
-
+//file nay de thiet lap seeding cac du lieu co so
 @Component
 public class DatabaseSeeder implements CommandLineRunner {
     private final UserRepository userRepository;
