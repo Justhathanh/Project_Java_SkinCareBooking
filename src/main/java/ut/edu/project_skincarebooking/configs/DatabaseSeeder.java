@@ -41,12 +41,12 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     private void seedServices() {
         if (serviceRepository.count() == 0) {
-            List<Service> services = Arrays.asList(
-                    new Service(null, "Facial Treatment", "Chăm sóc da mặt", 50.0,60),
-                    new Service(null, "Acne Removal", "Điều trị mụn", 60.0, 60),
-                    new Service(null, "Anti-Aging", "Chống lão hóa", 80.0, 60)
+            List<ServiceEntity> serviceEntities = Arrays.asList(
+                    new ServiceEntity(null, "Facial Treatment", "Chăm sóc da mặt", 50.0,60),
+                    new ServiceEntity(null, "Acne Removal", "Điều trị mụn", 60.0, 60),
+                    new ServiceEntity(null, "Anti-Aging", "Chống lão hóa", 80.0, 60)
             );
-            serviceRepository.saveAll(services);
+            serviceRepository.saveAll(serviceEntities);
             System.out.println("✅ Services inserted");
         }
     }
