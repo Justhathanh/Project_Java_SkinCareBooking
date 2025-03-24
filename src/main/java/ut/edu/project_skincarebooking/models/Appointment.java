@@ -1,10 +1,7 @@
 package ut.edu.project_skincarebooking.models;
-import ut.edu.project_skincarebooking.models.Appointment;
-import ut.edu.project_skincarebooking.models.SkinTherapist;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "appointments")
@@ -33,7 +30,7 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "service_id", nullable = false)
-    private Service service;
+    private ServiceEntity serviceEntity;
 
 
     public void cancelAppointment() {
