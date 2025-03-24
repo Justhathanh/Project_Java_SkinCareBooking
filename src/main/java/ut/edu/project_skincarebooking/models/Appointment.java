@@ -1,14 +1,18 @@
 package ut.edu.project_skincarebooking.models;
+
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "appointments")
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +23,10 @@ public class Appointment {
     private Customer customer;
 
     @Column(nullable = false)
-    private LocalDateTime date;
+    private LocalDate date;
+
+    @Column(nullable = false)
+    private LocalTime time;
 
     @Column(nullable = false)
     private String status;
@@ -30,17 +37,19 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "service_id", nullable = false)
-    private ServiceEntity serviceEntity;
+    private ServiceEntity service;
 
-
+    // Logic hủy cuộc hẹn
     public void cancelAppointment() {
-        // TODO: Logic hủy cuộc hẹn
+        this.status = "Cancelled";
     }
 
+    // Logic xác nhận cuộc hẹn
     public void confirmAppointment() {
-        // TODO: Logic xác nhận cuộc hẹn
+        this.status = "Confirmed";
     }
 
+    // Cập nhật trạng thái cuộc hẹn
     public void updateStatus(String newStatus) {
         this.status = newStatus;
     }

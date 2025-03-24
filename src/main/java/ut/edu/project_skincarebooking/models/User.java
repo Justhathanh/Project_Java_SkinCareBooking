@@ -1,6 +1,5 @@
 package ut.edu.project_skincarebooking.models;
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
