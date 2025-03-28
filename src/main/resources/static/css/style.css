@@ -1,12 +1,12 @@
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #e282e2;
+    background-color: #ddd9d9;
 }
 
 /* Navbar */
 .navbar {
-    box-shadow: 0 4px 6px rgb(7, 222, 243);
+    box-shadow: 0 4px 6px rgb(253, 254, 255);
 }
 
 /* Banner */
@@ -35,5 +35,5 @@ body {
 
 /* Footer */
 footer {
-    background-color: #559fe3;
+    background-color: #6a91b8;
 }
