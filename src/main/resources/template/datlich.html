@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt lịch Spa</title>
+    <link rel="stylesheet" href="/static/css/datlich.css">
+</head>
+<body>
+
+<header>
+    <h1>Cùng KAMOI đặt lịch Spa nhé!</h1>
+</header>
+
+<section class="booking-form">
+    <h2>Thông tin khách hàng</h2>
+    <form id="bookingForm">
+        <label for="name">Họ và Tên:</label>
+        <input type="text" id="name" required>
+
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại (10-11 số)">
+
+        <label for="address">Địa chỉ:</label>
+        <input type="text" id="address" required>
+
+        <h2>Chọn thông tin đặt lịch</h2>
+        <label for="spa">Chọn Spa:</label>
+        <select id="spa" onchange="updateOptions()">
+            <option value="">-- Chọn spa --</option>
+            <option value="spa1">Lin Beauty Spa - Spa Trị Mụn</option>
+            <option value="spa2">YB Spa</option>
+            <option value="spa3">Viện Thẩm Mỹ Seoul Center</option>
+        </select>
+
+        <label for="service">Chọn dịch vụ:</label>
+        <select id="service">
+            <option>Chọn spa trước</option>
+        </select>
+
+        <label for="specialist">Chọn chuyên viên:</label>
+        <select id="specialist">
+            <option>Chọn spa trước</option>
+        </select>
+
+        <label for="date">Chọn ngày:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Chọn giờ:</label>
+        <input type="time" id="time" required>
+
+        <button type="submit">Xác nhận đặt lịch</button>
+    </form>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
