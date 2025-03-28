@@ -1,14 +1,13 @@
 package ut.edu.project_skincarebooking.controllers;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ut.edu.project_skincarebooking.models.SkinTherapist;
 import ut.edu.project_skincarebooking.services.SkinTherapistService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/therapists")
 public class SkinTherapistController {
     private final SkinTherapistService skinTherapistService;
@@ -33,7 +32,7 @@ public class SkinTherapistController {
 
     // Thêm mới chuyên viên
     @PostMapping
-    public ResponseEntity<SkinTherapist> createTherapist(@RequestBody SkinTherapist therapist) {
+    public ResponseEntity<SkinTherapist> addTherapist(@RequestBody SkinTherapist therapist) {
         SkinTherapist newTherapist = skinTherapistService.addTherapist(therapist);
         return ResponseEntity.ok(newTherapist);
     }

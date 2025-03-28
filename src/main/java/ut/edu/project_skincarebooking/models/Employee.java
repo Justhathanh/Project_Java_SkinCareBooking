@@ -1,5 +1,5 @@
 package ut.edu.project_skincarebooking.models;
-
+import java.util.*;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -24,5 +24,8 @@ public abstract class Employee {
     @Column(nullable = false)
     private String phone;
 
-    public abstract List<String> viewSchedule();
+
+    public Map<String, String> viewSchedule() {
+        return new HashMap<>(); // Trả về một Map rỗng thay vì List.of()
+    }
 }
