@@ -12,18 +12,18 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/">KAMOI</a>
+        <a class="navbar-brand" href="/">KAMOI Booking Skincare</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/">Trang Chủ</a></li>
-                <li class="nav-item"><a class="nav-link" href="/service">Dịch Vụ</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="service.html">Dịch Vụ</a></li>
                 <li class="nav-item"><a class="nav-link" href="datlich.html">Đặt Lịch</a></li>
                 <li class="nav-item"><a class="nav-link" href="/specialist">Chuyên Viên</a></li>
-                <li class="nav-item"><a class="nav-link" href="/history">Lịch Sử</a></li>
-                <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard & Report</a></li>
+                <li class="nav-item"><a class="nav-link" href="history.html">Lịch Sử</a></li>
+                <li class="nav-item"><a class="nav-link" href="db&report.html">Dashboard & Report</a></li>
             </ul>
         </div>
     </div>
@@ -32,9 +32,12 @@
 <!-- Banner -->
 <header class="banner text-center text-white bg-primary py-5">
     <div class="container">
-        <h1>Chăm Sóc Da Hoàn Hảo</h1>
-        <p>Đặt lịch ngay để trải nghiệm dịch vụ tốt nhất</p>
-        <a href="datlich.html" class="btn btn-light btn-lg">Đặt Lịch Ngay</a>
+        <h1>Chăm Sóc Da Toàn Diện</h1>
+        <p class="text-center">Làm bài trắc nghiệm nhanh để KAMOI tư vấn dịch vụ phù hợp với da của bạn.</p>
+        <div class="text-center">
+            <a href="/quiz" class="btn btn-success btn-pulse">Bắt Đầu Trắc Nghiệm</a>
+        </div>
+
     </div>
 </header>
 
@@ -43,6 +46,52 @@
     <h1>Chào mừng đến với KAMOI Booking Skincare</h1>
     <p>Quản lý lịch trình, dịch vụ và báo cáo một cách dễ dàng.</p>
 </div>
+
+<!-- Dịch Vụ -->
+<section id="services" class="container my-5">
+    <h2 class="text-center mb-4">Dịch Vụ Phổ Biến Của KAMOI</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/images/face.jpg" class="card-img-top" alt="Face">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Chăm sóc da mặt</h5>
+                    <p class="card-text">Chăm sóc da là một phần quan trọng trong việc duy trì sức khỏe và vẻ đẹp của bạn. Liệu trình dưỡng da chuyên sâu giúp da sáng mịn.</p>
+                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/images/body.jpg" class="card-img-top" alt="Body">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Massage toàn thân</h5>
+                    <p class="card-text">Giúp giảm căng thẳng và lưu thông máu tốt, giảm đau nhức cơ bắp, tăng cường sự linh hoạt và tạo cảm giác thư thái, dễ chịu...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/images/massage.jpg" class="card-img-top" alt="Massage">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Massage trị liệu </h5>
+                    <p class="card-text">Một phương pháp chăm sóc sức khỏe sử dụng các kỹ thuật xoa bóp, ấn huyệt, kéo giãn cơ và các phương pháp vật lý trị liệu khác để điều trị các vấn đề về cơ xương khớp, thần kinh và các vấn đề sức khỏe khác.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/images/laser.jpg" class="card-img-top" alt="Laser">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Điều trị laser</h5>
+                    <p class="card-text">Loại bỏ vết thâm, tàn nhang và trẻ hóa làn da.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 <!-- Footer -->
 <footer class="text-center text-white bg-dark p-3 mt-5">
