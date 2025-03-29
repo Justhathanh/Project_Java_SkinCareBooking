@@ -1,55 +1,138 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Reset CSS */
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Định dạng chung */
+body {
+    background-color: #fff5f8; /* Màu nền nhẹ nhàng */
+    color: #333;
+}
+
+/* ====== NAVBAR ====== */
+.navbar {
+    background-color: hotpink !important; /* Màu nền navbar */
+    padding: 15px;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white !important;
+}
+
+.navbar .nav-link {
+    color: white !important;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #ffddf4 !important; /* Hiệu ứng hover sáng hơn */
+}
+
+/* ====== HEADER ====== */
 header {
-    background-color: hotpink;
-    color: white;
-    padding: 20px;
-    font-size: 24px;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.booking-form {
-    background: white;
-    max-width: 450px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-label {
+h1 {
+    color: hotpink;
     font-weight: bold;
 }
 
-select, input {
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+/* ====== FORM ĐẶT LỊCH ====== */
+.container {
+    margin-top: 20px;
 }
 
-button {
-    background-color: hotpink;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề form */
+h2 {
+    text-align: center;
+    color: hotpink;
+    font-weight: bold;
+}
+
+/* Nhãn input */
+.form-label {
+    font-weight: 600;
+    color: #444;
+}
+
+/* Input và Select */
+.form-control,
+.form-select {
+    border: 2px solid #ff69b4;
     border-radius: 5px;
+    padding: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #d40078;
+    box-shadow: 0px 0px 5px rgba(255, 20, 147, 0.5);
+}
+
+/* ====== BUTTON ====== */
+.btn-pink {
+    background-color: hotpink !important;
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: black;
+.btn-pink:hover {
+    background-color: #ff1493 !important;
+}
+
+/* ====== MODAL ====== */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: hotpink;
+    color: white;
+}
+
+.modal-body {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* ====== RESPONSIVE (Mobile) ====== */
+@media (max-width: 768px) {
+    .navbar .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .navbar .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
 }

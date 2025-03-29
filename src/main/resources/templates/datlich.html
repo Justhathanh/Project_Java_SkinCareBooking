@@ -5,55 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt lịch Spa</title>
     <link rel="stylesheet" href="/static/css/datlich.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
 
-<header>
-    <h1>Cùng KAMOI đặt lịch Spa nhé!</h1>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-pink">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="/">KAMOI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="/">Trang Chủ</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/service">Dịch Vụ</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/booking">Đặt Lịch</a></li>
+                <li class="nav-item"><a class="nav-link active text-white fw-bold" href="/specialist">Chuyên Viên</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/history">Lịch Sử</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/dashboard">Dashboard & Report</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="text-center py-4">
+    <h1 class="text-pink">Cùng KAMOI đặt lịch Spa nhé!</h1>
 </header>
 
-<section class="booking-form">
-    <h2>Thông tin khách hàng</h2>
-    <form id="bookingForm">
-        <label for="name">Họ và Tên:</label>
-        <input type="text" id="name" required>
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow p-4">
+                <h2 class="text-center text-pink">Thông tin khách hàng</h2>
+                <form id="bookingForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Họ và Tên:</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
 
-        <label for="phone">Số điện thoại:</label>
-        <input type="tel" id="phone" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại (10-11 số)">
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Số điện thoại:</label>
+                        <input type="tel" id="phone" class="form-control" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại (10-11 số)">
+                    </div>
 
-        <label for="address">Địa chỉ:</label>
-        <input type="text" id="address" required>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Địa chỉ:</label>
+                        <input type="text" id="address" class="form-control" required>
+                    </div>
 
-        <h2>Chọn thông tin đặt lịch</h2>
-        <label for="spa">Chọn Spa:</label>
-        <select id="spa" onchange="updateOptions()">
-            <option value="">-- Chọn spa --</option>
-            <option value="spa1">Lin Beauty Spa - Spa Trị Mụn</option>
-            <option value="spa2">YB Spa</option>
-            <option value="spa3">Viện Thẩm Mỹ Seoul Center</option>
-        </select>
+                    <h2 class="text-center text-pink">Chọn thông tin đặt lịch</h2>
 
-        <label for="service">Chọn dịch vụ:</label>
-        <select id="service">
-            <option>Chọn spa trước</option>
-        </select>
+                    <div class="mb-3">
+                        <label for="spa" class="form-label">Chọn Spa:</label>
+                        <select id="spa" class="form-select">
+                            <option value="">-- Chọn spa --</option>
+                            <option value="spa1">Lin Beauty Spa - Spa Trị Mụn</option>
+                            <option value="spa2">YB Spa</option>
+                            <option value="spa3">Viện Thẩm Mỹ Seoul Center</option>
+                        </select>
+                    </div>
 
-        <label for="specialist">Chọn chuyên viên:</label>
-        <select id="specialist">
-            <option>Chọn spa trước</option>
-        </select>
+                    <div class="mb-3">
+                        <label for="service" class="form-label">Chọn dịch vụ:</label>
+                        <select id="service" class="form-select">
+                            <option>Chọn spa trước</option>
+                        </select>
+                    </div>
 
-        <label for="date">Chọn ngày:</label>
-        <input type="date" id="date" required>
+                    <div class="mb-3">
+                        <label for="specialist" class="form-label">Chọn chuyên viên:</label>
+                        <select id="specialist" class="form-select">
+                            <option>Chọn spa trước</option>
+                        </select>
+                    </div>
 
-        <label for="time">Chọn giờ:</label>
-        <input type="time" id="time" required>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Chọn ngày:</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
 
-        <button type="submit">Xác nhận đặt lịch</button>
-    </form>
+                    <div class="mb-3">
+                        <label for="time" class="form-label">Chọn giờ:</label>
+                        <input type="time" id="time" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-pink w-100">Xác nhận đặt lịch</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
 
-<script src="script.js"></script>
+<!-- Modal thông báo đặt lịch thành công -->
+<div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thông báo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="text-success fw-bold">Đặt lịch thành công!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/datlich.js"></script>
+
+
 
 </body>
 </html>
