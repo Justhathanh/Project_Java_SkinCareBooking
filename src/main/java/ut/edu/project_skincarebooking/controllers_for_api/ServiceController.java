@@ -1,4 +1,4 @@
-package ut.edu.project_skincarebooking.controllers;
+package ut.edu.project_skincarebooking.controllers_for_api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

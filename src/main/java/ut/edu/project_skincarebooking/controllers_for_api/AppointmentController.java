@@ -1,4 +1,4 @@
-package ut.edu.project_skincarebooking.controllers;
+package ut.edu.project_skincarebooking.controllers_for_api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
