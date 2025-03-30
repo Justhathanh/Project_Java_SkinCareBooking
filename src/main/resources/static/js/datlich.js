@@ -1,67 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const spaSelect = document.getElementById("spa");
     const serviceSelect = document.getElementById("service");
     const specialistSelect = document.getElementById("specialist");
     const bookingForm = document.getElementById("bookingForm");
 
-    // Danh sách dịch vụ của từng Spa
-    const services = {
-        spa1: ["Tắm trắng", "Trị mụn", "Mát xa thư giãn", "Tiêm Meso", "Phun xăm"],
-        spa2: ["Điều trị da", "Giảm béo", "Gội đầu dưỡng sinh", "Massage toàn thân"],
-        spa3: ["Nâng cơ trẻ hóa", "Cấy collagen", "Trị nám tàn nhang", "Xóa xăm"],
-    };
+    // Danh sách dịch vụ tại KAMOI Spa
+    const services = [
+        "Chăm sóc da mặt ", "Massage toàn thân", "Massage trị liệu", "Điều trị laser",
+         "Giảm béo", "Gội đầu dưỡng sinh",
+        "Nâng cơ trẻ hóa", "Cấy collagen", "Trị nám tàn nhang"
+    ];
 
-    // Danh sách chuyên viên của từng Spa
-    const specialists = {
-        spa1: ["Nguyễn Thị Mai", "Trần Văn Phúc", "Hoàng Lan Anh"],
-        spa2: ["Lê Bảo Ngọc", "Phạm Hồng Sơn", "Vũ Minh Trang"],
-        spa3: ["Đặng Thùy Dung", "Ngô Hoàng Nam", "Trịnh Kim Phương"],
-    };
+    // Danh sách chuyên viên tại KAMOI Spa
+    const specialists = [
+        "Đinh Thị Thu Trà", "Nguyễn Ngọc Như Ý", "Trần Thị Nguyệt Anh",
+        "Hà Thành", "Nguyễn Hoàng Tâm Minh"
+    ];
 
-    // Khi chọn Spa, cập nhật danh sách dịch vụ và chuyên viên
-    spaSelect.addEventListener("change", function () {
-        const selectedSpa = spaSelect.value;
+    // Cập nhật danh sách dịch vụ
+    function populateSelect(selectElement, items, defaultText) {
+        selectElement.innerHTML = '';
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = defaultText;
+        selectElement.appendChild(defaultOption);
 
-        // Xóa danh sách cũ
-        serviceSelect.innerHTML = '';
-        specialistSelect.innerHTML = '';
+        items.forEach(item => {
+            let option = document.createElement("option");
+            option.value = item;
+            option.textContent = item;
+            selectElement.appendChild(option);
+        });
+    }
 
-        // Thêm lại option mặc định
-        const defaultServiceOption = document.createElement("option");
-        defaultServiceOption.value = "";
-        defaultServiceOption.textContent = "-- Chọn dịch vụ --";
-        serviceSelect.appendChild(defaultServiceOption);
-
-        const defaultSpecialistOption = document.createElement("option");
-        defaultSpecialistOption.value = "";
-        defaultSpecialistOption.textContent = "-- Chọn chuyên viên --";
-        specialistSelect.appendChild(defaultSpecialistOption);
-
-        if (selectedSpa && services[selectedSpa]) {
-            services[selectedSpa].forEach(service => {
-                let option = document.createElement("option");
-                option.value = service;
-                option.textContent = service;
-                serviceSelect.appendChild(option);
-            });
-
-            specialists[selectedSpa].forEach(specialist => {
-                let option = document.createElement("option");
-                option.value = specialist;
-                option.textContent = specialist;
-                specialistSelect.appendChild(option);
-            });
-        }
-    });
+    // Hiển thị dịch vụ và chuyên viên khi trang tải xong
+    populateSelect(serviceSelect, services, "-- Chọn dịch vụ --");
+    populateSelect(specialistSelect, specialists, "-- Chọn chuyên viên --");
 
     // Xử lý đặt lịch
     bookingForm.addEventListener("submit", function (event) {
         event.preventDefault();
-
-        if (!spaSelect.value) {
-            alert("Vui lòng chọn Spa trước khi đặt lịch!");
-            return;
-        }
 
         // Hiển thị modal Bootstrap
         const successModal = new bootstrap.Modal(document.getElementById("successModal"));

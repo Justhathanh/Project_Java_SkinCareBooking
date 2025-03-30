@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt lịch Spa</title>
+    <title>Đặt lịch KAMOI Spa</title>
     <link rel="stylesheet" href="/static/css/datlich.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -21,8 +21,8 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link text-white" href="/">Trang Chủ</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="/service">Dịch Vụ</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="/booking">Đặt Lịch</a></li>
-                <li class="nav-item"><a class="nav-link active text-white fw-bold" href="/specialist">Chuyên Viên</a></li>
+                <li class="nav-item"><a class="nav-link active text-white fw-bold" href="/booking">Đặt Lịch</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/specialist">Chuyên Viên</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="/history">Lịch Sử</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="/dashboard">Dashboard & Report</a></li>
             </ul>
@@ -31,7 +31,7 @@
 </nav>
 
 <header class="text-center py-4">
-    <h1 class="text-pink">Cùng KAMOI đặt lịch Spa nhé!</h1>
+    <h1 class="text-pink">Đặt lịch tại KAMOI Spa</h1>
 </header>
 
 <section class="container">
@@ -58,26 +58,24 @@
                     <h2 class="text-center text-pink">Chọn thông tin đặt lịch</h2>
 
                     <div class="mb-3">
-                        <label for="spa" class="form-label">Chọn Spa:</label>
-                        <select id="spa" class="form-select">
-                            <option value="">-- Chọn spa --</option>
-                            <option value="spa1">Lin Beauty Spa - Spa Trị Mụn</option>
-                            <option value="spa2">YB Spa</option>
-                            <option value="spa3">Viện Thẩm Mỹ Seoul Center</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
                         <label for="service" class="form-label">Chọn dịch vụ:</label>
                         <select id="service" class="form-select">
-                            <option>Chọn spa trước</option>
+                            <option value="">-- Chọn dịch vụ --</option>
+                            <option value="tam_trang">Tắm trắng</option>
+                            <option value="tri_mun">Trị mụn</option>
+                            <option value="mat_xa">Mát xa thư giãn</option>
+                            <option value="meso">Tiêm Meso</option>
+                            <option value="phun_xam">Phun xăm</option>
                         </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="specialist" class="form-label">Chọn chuyên viên:</label>
                         <select id="specialist" class="form-select">
-                            <option>Chọn spa trước</option>
+                            <option value="">-- Chọn chuyên viên --</option>
+                            <option value="nguyen_thi_mai">Nguyễn Thị Mai</option>
+                            <option value="tran_van_phuc">Trần Văn Phúc</option>
+                            <option value="hoang_lan_anh">Hoàng Lan Anh</option>
                         </select>
                     </div>
 
@@ -115,8 +113,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/static/js/datlich.js"></script>
-
-
 
 </body>
 </html>
