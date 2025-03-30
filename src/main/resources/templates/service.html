@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/api/services/view}">Dịch Vụ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/api/service/view}">Dịch Vụ</a></li>
                 <li class="nav-item"><a class="nav-link" href="datlich.html">Đặt Lịch</a></li>
                 <li class="nav-item"><a class="nav-link" href="chuyenvien.html">Chuyên Viên</a></li>
                 <li class="nav-item"><a class="nav-link" href="history.html">Lịch Sử</a></li>
@@ -39,8 +39,9 @@
 <section class="container my-5">
     <div class="row">
         <div class="col-md-4">
-            <div class="card">
-                <img src="/static/images/facial.jpg" class="card-img-top" alt="Facial">
+            <div class="card h-100">
+                <img src="/static/images/facial.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="Facial Image">
+
                 <div class="card-body">
                     <h5 class="card-title">Chăm Sóc Da Mặt Cơ Bản</h5>
                     <p class="card-text">Làm sạch sâu, cấp ẩm và phục hồi da.</p>
@@ -49,8 +50,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <img src="/static/images/tmcs.jpg" class="card-img-top" alt="tri-mun-chuyen-sau">
+            <div class="card h-100">
+                <img src="/static/images/tmcs.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="tri-mun-chuyen-sau">
                 <div class="card-body">
                     <h5 class="card-title">Trị Mụn Chuyên Sâu</h5>
                     <p class="card-text">Giải pháp chuyên biệt giúp giảm mụn, làm mờ vết thâm.</p>
@@ -59,8 +60,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <img src="/static/images/xonghoiface.jpg" class="card-img-top" alt="xonghoithaoduoc">
+            <div class="card h-100">
+                <img src="/static/images/laser.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="laser">
                 <div class="card-body">
                     <h5 class="card-title">Liệu pháp tái tạo da bằng laser</h5>
                     <p class="card-text">Công nghệ hiện đại giúp cải thiện nếp nhăn, da không đều màu.</p>
@@ -69,8 +70,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <img src="laser.jpg" class="card-img-top" alt="Laser">
+            <div class="card h-100">
+                <img src="/static/images/trehoaface.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="tre-hoa">
                 <div class="card-body">
                     <h5 class="card-title">Trẻ hóa da bằng công nghệ cao</h5>
                     <p class="card-text">Giúp da căng bóng, mịn màng và tràn đầy sức sống.</p>
@@ -79,8 +80,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <img src="laser.jpg" class="card-img-top" alt="Laser">
+            <div class="card h-100">
+                <img src="/static/images/brightface.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="trang-da">
                 <div class="card-body">
                     <h5 class="card-title">Liệu trình dưỡng trắng da</h5>
                     <p class="card-text">Tăng cường độ sáng, giúp da trắng hồng tự nhiên.</p>
@@ -89,8 +90,8 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <img src="laser.jpg" class="card-img-top" alt="Laser">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
                 <div class="card-body">
                     <h5 class="card-title">Massage thư giãn và detox da</h5>
                     <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
@@ -99,18 +100,110 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <img src="laser.jpg" class="card-img-top" alt="Laser">
+            <div class="card h-100">
+                <img src="/static/images/xonghoiface.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="xonghoithaoduoc">
                 <div class="card-body">
                     <h5 class="card-title">Xông hơi thảo dược</h5>
                     <p class="card-text">Làm sạch sâu, giúp da hấp thụ dưỡng chất tốt hơn.</p>
                     <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
                 </div>
             </div>
-            <div class="service-item">
-                <img src="/images/scar-treatment.jpg" alt="Điều trị sẹo rỗ, thâm">
-                <h3>Điều trị sẹo rỗ, thâm</h3>
-                <p>Phục hồi làn da mịn màng với liệu pháp hiện đại.</p>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/treatment.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="dieu tri da hu ton">
+                <div class="card-body">
+                    <h5>Điều trị sẹo rỗ, thâm</h5>
+                    <p>Phục hồi làn da mịn màng với liệu pháp hiện đại.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body">
+                    <h5 class="card-title">Nâng cơ trẻ hóa da bằng RF</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body">
+                    <h5 class="card-title">Chăm sóc da sau lăn kim</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body">
+                    <h5 class="card-title">Peel da hóa học</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body">
+                    <h5 class="card-title">Chăm sóc da chuyên biệt cho nam</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body">
+                    <h5 class="card-title">Cấy tinh chất cấp ẩm</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body">
+                    <h5 class="card-title">Điều trị nám, tàn nhang</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body">
+                    <h5 class="card-title">Chăm sóc da nhạy cảm</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Massage trị liệu </h5>
+                    <p class="card-text">Một phương pháp chăm sóc sức khỏe sử dụng các kỹ thuật xoa bóp, ấn huyệt, kéo giãn cơ và các phương pháp vật lý trị liệu khác để điều trị các vấn đề về cơ xương khớp, thần kinh và các vấn đề sức khỏe khác.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Massage toàn thân</h5>
+                    <p class="card-text">Giúp giảm căng thẳng và lưu thông máu tốt, giảm đau nhức cơ bắp, tăng cường sự linh hoạt và tạo cảm giác thư thái, dễ chịu...</p>
+                </div>
             </div>
         </div>
     </div>

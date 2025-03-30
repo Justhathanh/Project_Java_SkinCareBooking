@@ -92,7 +92,7 @@ footer {
 }
 
 .overlay button {
-    background: #007bff;
+    background: #e282e2;
     color: white;
     border: none;
     padding: 8px 15px;
@@ -103,4 +103,9 @@ footer {
 
 .overlay button:hover {
     background: #0056b3;
+}
+.card-img-top {
+    width: 100%;
+    aspect-ratio: 16/9; /* Giữ tỷ lệ 16:9 */
+    object-fit: cover;
 }

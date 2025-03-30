@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/services/view}">Dịch Vụ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/service/view}">Dịch Vụ</a></li>
                 <li class="nav-item"><a class="nav-link" href="datlich.html">Đặt Lịch</a></li>
                 <li class="nav-item"><a class="nav-link" href="chuyenvien.html">Chuyên Viên</a></li>
                 <li class="nav-item"><a class="nav-link" href="history.html">Lịch Sử</a></li>
@@ -44,20 +44,31 @@
 <!-- Main Content -->
 <div class="container text-center my-5">
     <h1>Chào mừng đến với KAMOI Booking Skincare</h1>
-    <p>Quản lý lịch trình, dịch vụ và báo cáo một cách dễ dàng.</p>
 </div>
-
+<!-- Phần Giới Thiệu -->
+<section class="about-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>KAMOI Booking Skincare</h2>
+                <p>Nơi giúp bạn dễ dàng đặt lịch chăm sóc da tại KAMOI tiện lợi và nhanh chóng nhất. Chúng tôi cam kết mang đến trải nghiệm tốt nhất với đội ngũ chuyên gia giàu kinh nghiệm và công nghệ làm đẹp hiện đại.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="/static/images/about.jpg" class="img-fluid about-image" alt="Giới thiệu Skincare">
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Dịch Vụ -->
 <section id="services" class="container my-5">
     <h2 class="text-center mb-4">Dịch Vụ Phổ Biến Của KAMOI</h2>
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/images/face.jpg" class="card-img-top" alt="Face">
+                <img src="/images/facial.jpg" class="card-img-top" alt="Face">
                 <div class="card-body text-center">
                     <h5 class="card-title">Chăm sóc da mặt</h5>
                     <p class="card-text">Chăm sóc da là một phần quan trọng trong việc duy trì sức khỏe và vẻ đẹp của bạn. Liệu trình dưỡng da chuyên sâu giúp da sáng mịn.</p>
-                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
                 </div>
             </div>
         </div>
@@ -91,7 +102,50 @@
     </div>
 </section>
 
+<footer class="kamoi-footer py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Cột Giới thiệu & Mạng xã hội -->
+            <div class="col-md-4 text-center text-md-start">
+                <img src="/static/images/logo.png" alt="Logo" style="width: 100px;">
+                <h5 class="mt-3">💖 <b>KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
+                <p>Sự kết hợp hoàn hảo giữa khoa học và thiên nhiên, mang đến giải pháp chăm sóc da an toàn và hiệu quả.</p>
+                <!-- Icon mạng xã hội -->
+                <div class="social-icons d-flex justify-content-center">
+                    <a href="#"><img src="/static/icons/facebook.png" class="social-icon"></a>
+                    <a href="#"><img src="/static/icons/instagram.png" class="social-icon"></a>
+                    <a href="#"><img src="/static/icons/tiktok.png" class="social-icon"></a>
+                </div>
+                <h6 class="mt-3"><b>⏰ Thời gian làm việc</b></h6>
+                <p>09:00 - 22:00 | Thứ 2 - Chủ Nhật (Kể cả dịp lễ, Tết)</p>
+            </div>
 
+            <!-- Cột Thông tin liên hệ -->
+            <div class="col-md-4">
+                <h5><b>📞 THÔNG TIN LIÊN HỆ</b></h5>
+                <p>📧 Email: <a href="mailto:KAMOI.skincare@gmail.com">KAMOI.skincare@gmail.com</a></p>
+                <ul class="contact-list">
+                    <li> Hotline CN1: 0123 456 789</li>
+                    <li> Hotline CN2: 0123 654 987</li>
+                    <li> Hotline CN3: 0789 654 123</li>
+                    <li> Hotline CN4: 0987 456 321</li>
+                    <li> Hotline CN5: 0147 852 369</li>
+                </ul>
+            </div>
+
+            <!-- Cột Hệ thống chi nhánh -->
+            <div class="col-md-4">
+                <h5><b>📍 HỆ THỐNG CHI NHÁNH</b></h5>
+                <ul class="branch-list">
+                    <p>🏢 83/86, Nguyễn Thị Minh Khai, Quận 1</p>
+                    <p>🏢 123/4, Nguyễn Gia Trí, Quận Bình Thạnh</p>
+                    <p>🏢 66/77, Trần Hưng Đạo, Quận 5</p>
+                    <p>🏢 15/7, Quang Trung, Quận Gò Vấp</p>
+                    <p>🏢 702/3B, Sư Vạn Hạnh, Quận 10</p>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 <!-- Footer -->
 <footer class="text-center text-white bg-dark p-3 mt-5">
