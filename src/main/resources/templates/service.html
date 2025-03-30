@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
 
 <!-- Navbar -->
@@ -20,9 +21,9 @@
                 <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/api/services/view}">Dịch Vụ</a></li>
                 <li class="nav-item"><a class="nav-link" href="datlich.html">Đặt Lịch</a></li>
-                <li class="nav-item"><a class="nav-link" href="/specialist">Chuyên Viên</a></li>
-                <li class="nav-item"><a class="nav-link" href="/history">Lịch Sử</a></li>
-                <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard & Report</a></li>
+                <li class="nav-item"><a class="nav-link" href="chuyenvien.html">Chuyên Viên</a></li>
+                <li class="nav-item"><a class="nav-link" href="history.html">Lịch Sử</a></li>
+                <li class="nav-item"><a class="nav-link" href="db&report.html">Dashboard & Report</a></li>
             </ul>
         </div>
     </div>
@@ -33,6 +34,87 @@
     <h1>Dịch Vụ Chăm Sóc Da</h1>
     <p>Chọn dịch vụ phù hợp để có làn da khỏe đẹp</p>
 </header>
+
+<!-- Danh sách dịch vụ -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="/static/images/facial.jpg" class="card-img-top" alt="Facial">
+                <div class="card-body">
+                    <h5 class="card-title">Chăm Sóc Da Mặt Cơ Bản</h5>
+                    <p class="card-text">Làm sạch sâu, cấp ẩm và phục hồi da.</p>
+                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="/static/images/tmcs.jpg" class="card-img-top" alt="tri-mun-chuyen-sau">
+                <div class="card-body">
+                    <h5 class="card-title">Trị Mụn Chuyên Sâu</h5>
+                    <p class="card-text">Giải pháp chuyên biệt giúp giảm mụn, làm mờ vết thâm.</p>
+                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="/static/images/xonghoiface.jpg" class="card-img-top" alt="xonghoithaoduoc">
+                <div class="card-body">
+                    <h5 class="card-title">Liệu pháp tái tạo da bằng laser</h5>
+                    <p class="card-text">Công nghệ hiện đại giúp cải thiện nếp nhăn, da không đều màu.</p>
+                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="laser.jpg" class="card-img-top" alt="Laser">
+                <div class="card-body">
+                    <h5 class="card-title">Trẻ hóa da bằng công nghệ cao</h5>
+                    <p class="card-text">Giúp da căng bóng, mịn màng và tràn đầy sức sống.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="laser.jpg" class="card-img-top" alt="Laser">
+                <div class="card-body">
+                    <h5 class="card-title">Liệu trình dưỡng trắng da</h5>
+                    <p class="card-text">Tăng cường độ sáng, giúp da trắng hồng tự nhiên.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="laser.jpg" class="card-img-top" alt="Laser">
+                <div class="card-body">
+                    <h5 class="card-title">Massage thư giãn và detox da</h5>
+                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="laser.jpg" class="card-img-top" alt="Laser">
+                <div class="card-body">
+                    <h5 class="card-title">Xông hơi thảo dược</h5>
+                    <p class="card-text">Làm sạch sâu, giúp da hấp thụ dưỡng chất tốt hơn.</p>
+                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="/images/scar-treatment.jpg" alt="Điều trị sẹo rỗ, thâm">
+                <h3>Điều trị sẹo rỗ, thâm</h3>
+                <p>Phục hồi làn da mịn màng với liệu pháp hiện đại.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
