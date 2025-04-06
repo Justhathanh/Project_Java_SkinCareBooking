@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/service")
+@RequestMapping("/services")
 public class ServiceViewController {
     @GetMapping("/view")
     public String showServicePage() {return "service"; // Trả về file service.html trong thư mục templates

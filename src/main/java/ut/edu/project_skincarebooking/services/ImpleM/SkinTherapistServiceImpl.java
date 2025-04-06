@@ -1,10 +1,11 @@
-package ut.edu.project_skincarebooking.services;
+package ut.edu.project_skincarebooking.services.ImpleM;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ut.edu.project_skincarebooking.exceptions.SkinTherapistNotFoundException;
 import ut.edu.project_skincarebooking.models.SkinTherapist;
 import ut.edu.project_skincarebooking.repositories.SkinTherapistRepository;
+import ut.edu.project_skincarebooking.services.interF.SkinTherapistService;
 
 import java.util.List;
 import java.util.Map;
