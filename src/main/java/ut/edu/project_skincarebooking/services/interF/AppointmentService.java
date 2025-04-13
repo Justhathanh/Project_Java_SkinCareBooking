@@ -1,4 +1,4 @@
-package ut.edu.project_skincarebooking.services;
+package ut.edu.project_skincarebooking.services.interF;
 import ut.edu.project_skincarebooking.models.Appointment;
 import java.util.*;
 

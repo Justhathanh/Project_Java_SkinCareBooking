@@ -3,7 +3,7 @@ package ut.edu.project_skincarebooking.controllers_for_api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ut.edu.project_skincarebooking.models.Customer;
-import ut.edu.project_skincarebooking.services.CustomerService;
+import ut.edu.project_skincarebooking.services.interF.CustomerService;
 
 import java.util.List;
 

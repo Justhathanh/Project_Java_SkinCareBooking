@@ -1,10 +1,11 @@
-package ut.edu.project_skincarebooking.services;
+package ut.edu.project_skincarebooking.services.ImpleM;
 
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import ut.edu.project_skincarebooking.exceptions.AppointmentNotFoundException;
 import ut.edu.project_skincarebooking.models.Appointment;
 import ut.edu.project_skincarebooking.repositories.AppointmentRepository;
+import ut.edu.project_skincarebooking.services.interF.AppointmentService;
 
 import java.util.List;
 @Service

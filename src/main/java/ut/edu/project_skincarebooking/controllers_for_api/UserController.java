@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ut.edu.project_skincarebooking.exceptions.UserNotFoundException;
 import ut.edu.project_skincarebooking.models.User;
-import ut.edu.project_skincarebooking.services.UserService;
+import ut.edu.project_skincarebooking.services.interF.UserService;
 
 import java.util.List;
 import java.util.Optional;

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ut.edu.project_skincarebooking.models.Appointment;
-import ut.edu.project_skincarebooking.services.AppointmentService;
+import ut.edu.project_skincarebooking.services.interF.AppointmentService;
 
 import java.util.List;
 

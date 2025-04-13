@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Skincare Booking</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="icon" type="image/png" href="/static/images/tab.png">
 
 </head>
@@ -12,27 +12,27 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container d-flex align-items-center justify-content-between">
-        <img src="/static/images/logo.png" class="img-fluid about-image" alt="Giới thiệu Skincare" style="height: 60px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">KAMOI Booking Skincare</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-                <li class="nav-item"><a class="nav-link" href="service.html">Dịch Vụ</a></li>
-                <li class="nav-item"><a class="nav-link" href="datlich.html">Đặt Lịch</a></li>
-                <li class="nav-item"><a class="nav-link" href="chuyenvien.html">Chuyên Viên</a></li>
-                <li class="nav-item"><a class="nav-link" href="history.html">Lịch Sử</a></li>
-                <li class="nav-item"><a class="nav-link" href="db_report.html">Dashboard & Report</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/}">Trang Chủ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/services/view}">Dịch Vụ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/datlich}">Đặt Lịch</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien}">Chuyên Viên</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/history}">Lịch Sử</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/db_report}">Dashboard & Report</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <!-- Banner -->
-<header class="banner text-center text-black bg-white py-5">
+<header class="banner text-center text-white bg-primary py-5">
     <div class="container">
         <h1>Chăm Sóc Da Toàn Diện</h1>
         <p class="text-center">Làm bài trắc nghiệm nhanh để KAMOI tư vấn dịch vụ phù hợp với da của bạn.</p>
@@ -56,7 +56,7 @@
                 <p>Nơi giúp bạn dễ dàng đặt lịch chăm sóc da tại KAMOI tiện lợi và nhanh chóng nhất. Chúng tôi cam kết mang đến trải nghiệm tốt nhất với đội ngũ chuyên gia giàu kinh nghiệm và công nghệ làm đẹp hiện đại.</p>
             </div>
             <div class="col-md-6">
-                <img src="/static/images/tab.png" class="img-fluid about-image" alt="Giới thiệu Skincare">
+                <img src="/static/images/about.jpg" class="img-fluid about-image" alt="Giới thiệu Skincare">
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/facial.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="Facial Image">
+                <img src="/images/facial.jpg" class="card-img-top" alt="Face">
                 <div class="card-body text-center">
                     <h5 class="card-title">Chăm sóc da mặt</h5>
                     <p class="card-text">Chăm sóc da là một phần quan trọng trong việc duy trì sức khỏe và vẻ đẹp của bạn. Liệu trình dưỡng da chuyên sâu giúp da sáng mịn.</p>
@@ -76,7 +76,7 @@
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="Facial Image">
+                <img src="/images/body.jpg" class="card-img-top" alt="Body">
                 <div class="card-body text-center">
                     <h5 class="card-title">Massage toàn thân</h5>
                     <p class="card-text">Giúp giảm căng thẳng và lưu thông máu tốt, giảm đau nhức cơ bắp, tăng cường sự linh hoạt và tạo cảm giác thư thái, dễ chịu...</p>
@@ -85,7 +85,7 @@
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/tmcs.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="Facial Image">
+                <img src="/images/massage.jpg" class="card-img-top" alt="Massage">
                 <div class="card-body text-center">
                     <h5 class="card-title">Massage trị liệu </h5>
                     <p class="card-text">Một phương pháp chăm sóc sức khỏe sử dụng các kỹ thuật xoa bóp, ấn huyệt, kéo giãn cơ và các phương pháp vật lý trị liệu khác để điều trị các vấn đề về cơ xương khớp, thần kinh và các vấn đề sức khỏe khác.</p>
@@ -94,7 +94,7 @@
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/laser.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="Facial Image">
+                <img src="/images/laser.jpg" class="card-img-top" alt="Laser">
                 <div class="card-body text-center">
                     <h5 class="card-title">Điều trị laser</h5>
                     <p class="card-text">Loại bỏ vết thâm, tàn nhang và trẻ hóa làn da.</p>
@@ -109,7 +109,7 @@
         <div class="row">
             <!-- Cột Giới thiệu & Mạng xã hội -->
             <div class="col-md-4 text-center text-md-start">
-                <img src="/static/images/tab.png" alt="Logo" style="width: 100px;">
+                <img src="/static/images/logo.png" alt="Logo" style="width: 100px;">
                 <h5 class="mt-3">💖 <b>KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
                 <p>Sự kết hợp hoàn hảo giữa khoa học và thiên nhiên, mang đến giải pháp chăm sóc da an toàn và hiệu quả.</p>
                 <!-- Icon mạng xã hội -->
@@ -129,6 +129,9 @@
                 <ul class="contact-list">
                     <li> Hotline CN1: 0123 456 789</li>
                     <li> Hotline CN2: 0123 654 987</li>
+                    <li> Hotline CN3: 0789 654 123</li>
+                    <li> Hotline CN4: 0987 456 321</li>
+                    <li> Hotline CN5: 0147 852 369</li>
                 </ul>
             </div>
 
@@ -137,18 +140,21 @@
                 <h5><b>📍 HỆ THỐNG CHI NHÁNH</b></h5>
                 <ul class="branch-list">
                     <p>🏢 83/86, Nguyễn Thị Minh Khai, Quận 1</p>
-                    <p>🏢 102, Nguyễn Gia Trí, Quận Bình Thạnh</p>
+                    <p>🏢 123/4, Nguyễn Gia Trí, Quận Bình Thạnh</p>
+                    <p>🏢 66/77, Trần Hưng Đạo, Quận 5</p>
+                    <p>🏢 15/7, Quang Trung, Quận Gò Vấp</p>
+                    <p>🏢 702/3B, Sư Vạn Hạnh, Quận 10</p>
                 </ul>
             </div>
         </div>
     </div>
-</footer>
+
 <!-- Footer -->
-<footer class="text-center text-white bg-white p-3 mt-5">
+<footer class="text-center text-white bg-dark p-3 mt-5">
     <p>&copy; 2025 Skincare Booking. All rights reserved by KAMOI team.</p>
 </footer>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/script.js" defer></script>
+<script src="/js/script.js" defer></script>
 </body>
 </html>

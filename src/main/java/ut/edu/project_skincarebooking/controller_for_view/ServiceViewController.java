@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/services")
 public class ServiceViewController {
     @GetMapping("/view")
-    public String showServicePage() {
-        return "service"; // Trả về file service.html trong thư mục templates
+    public String showServicePage() {return "service"; // Trả về file service.html trong thư mục templates
     }
 }
