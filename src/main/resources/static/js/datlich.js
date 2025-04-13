@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Danh sách chuyên viên tại KAMOI Spa
     const specialists = [
-        "Đinh Thị Thu Trà", "Nguyễn Ngọc Như Ý", "Trần Thị Nguyệt Anh",
+        "Không chọn trước chuyên viên","Đinh Thị Thu Trà", "Nguyễn Ngọc Như Ý", "Trần Thị Nguyệt Anh",
         "Hà Thành", "Nguyễn Hoàng Tâm Minh"
     ];
 
