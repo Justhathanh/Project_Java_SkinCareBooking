@@ -1,5 +1,7 @@
 package ut.edu.project_skincarebooking.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,7 +21,8 @@ public class Appointment {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id")
+    @JsonManagedReference(value = "customer-appointments")
     private Customer customer;
 
     @Column(nullable = false)
@@ -32,13 +35,18 @@ public class Appointment {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "therapist_id", nullable = false)
+    @JoinColumn(name = "therapist_id")
+    @JsonManagedReference(value = "therapist-appointments")
     private SkinTherapist therapist;
 
     @ManyToOne
     @JoinColumn(name = "service_id", nullable = false)
+    @JsonBackReference(value = "service-appointments")
     private ServiceEntity service;
 
+    @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "appointment-feedback")
+    private Feedback feedback;
     // Logic hủy cuộc hẹn
     public void cancelAppointment() {
         this.status = "Cancelled";
