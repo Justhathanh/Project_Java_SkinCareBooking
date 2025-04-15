@@ -14,23 +14,28 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/">KAMOI Booking Skincare</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="/static/images/logoKAMOI.png" alt="KAMOI logo" class="logo-img">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="hotline">
+                <i class="fa-solid fa-phone-volume"></i>
+                <span class="text-pink">Hotline: 0909 123 456</span>
+            </div>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/}">Trang Chủ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/index/view}">Trang Chủ</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/services/view}">Dịch Vụ</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/datlich}">Đặt Lịch</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien}">Chuyên Viên</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/history}">Lịch Sử</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/db_report}">Dashboard & Report</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/datlich/view}">Đặt Lịch</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien/view}">Chuyên Viên</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/history/view}">Lịch Sử</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/db_report/view}">Dashboard & Report</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
 <!-- Banner -->
 <header class="banner text-center text-white bg-primary py-5">
     <div class="container">

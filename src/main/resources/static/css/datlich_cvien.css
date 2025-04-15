@@ -13,27 +13,81 @@ body {
     color: #333;
 }
 
-/* ====== NAVBAR ====== */
 .navbar {
-    background-color: hotpink !important;
-    padding: 15px;
+    background-color: #fff0f5 !important;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* đảm bảo hiển thị trên các phần khác */
 }
 
 .navbar .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white !important;
+    color: #EF4A7B !important;
 }
-
+/* tab trang chủ */
 .navbar .nav-link {
-    color: white !important;
-    font-weight: bold;
+    color: #EF4A7B !important;
     transition: 0.3s;
 }
 
 .navbar .nav-link:hover {
     color: #ffddf4 !important;
 }
+
+.btn-book {
+    background: #f7a6c3;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 30px;
+}
+.btn-book:hover {
+    background: #d63384;
+}
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #fff0f5, #ffe1ec);
+}
+.hero h1 {
+    font-size: 3rem;
+    color: #e282e2;
+}
+.hero p {
+    font-size: 1.2rem;
+    color: #5c4b51;
+    margin-bottom: 30px;
+}
+.card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card-title {
+    color: #e282e2;
+    font-weight: bold;
+}
+
+/* tab trang chủ */
+.navbar .nav-link {
+    color: #EF4A7B !important;
+    transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #ffddf4 !important;
+}
+
+
 
 /* ====== HEADER ====== */
 header {
@@ -42,9 +96,7 @@ header {
 }
 
 h1 {
-    color: hotpink;
-    font-weight: bold;
-    margin-bottom: 30px;
+
 }
 
 /* ====== FORM ĐẶT LỊCH ====== */
@@ -62,7 +114,7 @@ h1 {
 /* Tiêu đề form */
 h2 {
     text-align: center;
-    color: hotpink;
+    color: #EF4A7B;
     font-weight: bold;
 }
 
@@ -90,7 +142,7 @@ h2 {
 
 /* ====== BUTTON ====== */
 .btn-pink {
-    background-color: hotpink !important;
+    background-color: #EF4A7B !important;
     color: white !important;
     font-weight: bold;
     border: none;
@@ -111,7 +163,7 @@ h2 {
 }
 
 .modal-header {
-    background-color: hotpink;
+    background-color: #EF4A7B;
     color: white;
 }
 
@@ -140,7 +192,7 @@ h2 {
 
 .card-title {
     font-size: 1.5rem;
-    color: hotpink;
+    color: #EF4A7B;
 }
 
 .card-text {
@@ -154,31 +206,38 @@ h2 {
     object-fit: cover;
 }
 
-/* Footer */
+
 footer {
-    font-size: 14px;
-    font-weight: bold;
+    background-color: #eec9d2;
+    padding: 40px 0;
+    color: #5c4b51;
 }
-
-/* ====== RESPONSIVE (Mobile) ====== */
-@media (max-width: 768px) {
-    .navbar .navbar-brand {
-        font-size: 1.3rem;
-    }
-
-    .navbar .nav-link {
-        font-size: 0.9rem;
-    }
-
-    .card {
-        padding: 15px;
-    }
+footer a {
+    color: #5c4b51;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #d63384;
+}
+/*icon góc phải */
+.fixed-icon {
+    position: fixed;       /* Luôn cố định vị trí khi cuộn trang */
+    right: 20px;           /* Cách mép phải 20px */
+    bottom: 100px;         /* Cách mép dưới 100px */
+    background-color: white; /* màu nền (nếu cần) */
+    color: #EF4A7B;          /* màu icon */
+    padding: 12px;
+    border-radius: 30%;    /* hình tròn */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); /* bóng nhẹ */
+    font-size: 23px;       /* kích thước icon */
+    z-index: 999;          /* nằm trên cùng */
+    cursor: pointer;       /* biểu tượng con trỏ tay */
 }
 
 /* đội ngũ chuyên viên */
-.doi_ngu_chuyen_vien-img {
-    width: 1555px; /* Ảnh co dãn theo kích thước của container */
-    height: 500px;
+.chuyen_vien-img {
+    width: 100%; /* Ảnh co dãn theo kích thước của container */
+    height: auto;
     object-fit: cover;
     max-width: 10000px; /* Giới hạn kích thước tối đa */
     display: block;
@@ -186,3 +245,48 @@ footer {
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
 }
+
+.logo-img{
+    height: 50px;
+    width:auto;
+    object-fit: contain;
+}
+/*chuyên môn */
+h5 {
+    color: #EF4A7B; /* màu chữ đậm */
+}
+
+p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* tạo bóng nhẹ */
+}
+
+.box-icon{
+    color: #EF4A7B;
+    text-align: justify;
+    font-size: 23px;
+}
+.dscv{
+    color: #EF4A7B;
+
+}
+
+/*hotline*/
+.hotline{
+    color: #EF4A7B;
+    background-color: #ffddf4;
+    display: inline-block;
+    padding: 8px 15px;
+    border: 2px solid hotpink;
+    border-radius: 10px;
+    font-size: 1.1rem;
+}
+.text-pink {
+    color: #EF4A7B;
+}
+

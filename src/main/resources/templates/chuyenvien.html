@@ -2,48 +2,77 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Skincare Booking</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="/static/css/datlich_cvien.css">
-    <link rel="icon" type="image/png" href="/static/images/tab.png">
+    <title>Chuyên Viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/datlich_cvien.css">
     <link rel="stylesheet" th:href="@{/static/css/datlich.css}">
     <link rel="stylesheet" th:href="@{/static/css/cvien.css}">
-    <link rel="icon" type="image/png" th:href="@{/static/images/tab.png}">
-
-
-
+    <link rel="icon" type="image/png" href="/static/images/tab.png">
 
 </head>
 
 <body>
 
-
-
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="/">KAMOI Booking Skincare</a>
+<nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container d-flex align-items-center justify-content-between">
+        <img th:src="@{/images/logoKAMOI.png}" class="img-fluid" alt="Logo" style="height: 60px;">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-                <li class="nav-item"><a class="nav-link" href="service.html">Dịch Vụ</a></li>
-                <li class="nav-item"><a class="nav-link" href="datlich.html">Đặt Lịch</a></li>
-                <li class="nav-item"><a class="nav-link" href="chuyenvien.html">Chuyên Viên</a></li>
-                <li class="nav-item"><a class="nav-link" href="history.html">Lịch Sử</a></li>
-                <li class="nav-item"><a class="nav-link" href="db&report.html">Dashboard & Report</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/index}">Trang Chủ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/service}">Dịch Vụ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/datlich}">Đặt Lịch</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien}">Chuyên Viên</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/history}">Lịch Sử</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/db_report}">Dashboard & Report</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<img src="/static/images/doi_ngu_chuyen_vien.jpg" alt="Đội ngũ chuyên viên chuyên nghiệp" class="doi_ngu_chuyen_vien-img">
+<img src="/static/images/chuyen_vien.jpg" alt="Đội ngũ chuyên viên chuyên nghiệp" class="chuyen_vien-img">
+
+<!-- Giới thiệu chuyên môn -->
+<div class="container py-5">
+    <div class="row text-center">
+        <!-- Box 1 -->
+        <div class="col-md-4 mb-4 box-icon">
+            <i class="fa-solid fa-star"></i>
+            <h5><strong>Giàu kinh nghiệm</strong></h5>
+            <p>
+                KamoiSpa.Vn tự hào với đội ngũ chuyên viên giàu kinh nghiệm, tận tâm và chuyên nghiệp hàng đầu trong lĩnh vực thẩm mỹ.
+                Mỗi chuyên viên đều am hiểu sâu sắc các phương pháp tiên tiến, cập nhật xu hướng làm đẹp mới nhất đồng thời luôn lắng nghe và thấu hiểu nhu cầu của từng khách hàng để mang đến dịch vụ an toàn, hiệu quả với kết quả tối ưu.
+            </p>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="col-md-4 mb-4 box-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h5><strong>Nghiệp vụ chuyên môn cao</strong></h5>
+            <p>
+                Đội ngũ chuyên gia sở hữu trình độ chuyên môn cao và kinh nghiệm dày dặn trong cả lĩnh vực thẩm mỹ nội khoa và ngoại khoa. Sự kết hợp hoàn hảo này mang đến cho khách hàng những giải pháp làm đẹp toàn diện, từ chăm sóc da chuyên sâu đến các kỹ thuật thẩm mỹ tiên tiến.
+            </p>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="col-md-4 mb-4 box-icon">
+            <i class="fa-solid fa-user-check"></i>
+            <h5><strong>Tận tâm với khách hàng</strong></h5>
+            <p>
+                Với lòng nhiệt thành và sự tận tâm, đội ngũ bác sĩ và chuyên gia thẩm mỹ luôn đặt lợi ích của khách hàng lên hàng đầu, sẵn sàng lắng nghe, tư vấn và đồng hành cùng bạn trên hành trình chăm sóc sức khỏe và sắc đẹp toàn diện.
+            </p>
+        </div>
+    </div>
+</div>
+
 
 <!-- Chuyên Viên -->
 <div class="container mt-5">
-    <h1 class="text-center" style="color: hotpink;">Đội Ngũ Chuyên Viên</h1>
     <div class="row">
+        <h1 class="dscv">Danh sách chuyên viên </h1>
         <!-- Chuyên Viên 1 -->
         <div class="col-md-4">
             <div class="card specialist-card shadow-lg">
@@ -112,23 +141,19 @@
 </div>
 
 <!-- Footer -->
-<footer class="text-center text-white p-3 mt-5" style="background-color: hotpink;">
-    <p>&copy; 2025 Skincare Booking. All rights reserved by KAMOI team.</p>
-</footer>
-
-<footer class="kamoi-footer py-5">
+<footer class=" text-center">
     <div class="container">
         <div class="row">
             <!-- Cột Giới thiệu & Mạng xã hội -->
-            <div class="col-md-4 text-center text-md-start">
-                <img src="/static/images/tab.png" alt="Logo" style="width: 100px;">
-                <h5 class="mt-3">💖 <b>KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
+            <div class="col-md-4">
+                <!--                <img src="/static/images/tab.png" alt="Logo" style="width: 90px;">-->
+                <h5><b>💖KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
                 <p>Sự kết hợp hoàn hảo giữa khoa học và thiên nhiên, mang đến giải pháp chăm sóc da an toàn và hiệu quả.</p>
                 <!-- Icon mạng xã hội -->
                 <div class="social-icons d-flex justify-content-center">
-                    <a href="#"><img src="/static/icons/facebook.png" class="social-icon"></a>
-                    <a href="#"><img src="/static/icons/instagram.png" class="social-icon"></a>
-                    <a href="#"><img src="/static/icons/tiktok.png" class="social-icon"></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/></a>
                 </div>
                 <h6 class="mt-3"><b>⏰ Thời gian làm việc</b></h6>
                 <p>09:00 - 22:00 | Thứ 2 - Chủ Nhật (Kể cả dịp lễ, Tết)</p>
@@ -139,22 +164,31 @@
                 <h5><b>📞 THÔNG TIN LIÊN HỆ</b></h5>
                 <p>📧 Email: <a href="mailto:KAMOI.skincare@gmail.com">KAMOI.skincare@gmail.com</a></p>
                 <ul class="contact-list">
-                    <li> Hotline CN1: 0123 456 789</li>
-                    <li> Hotline CN2: 0123 654 987</li>
+                    <li> Hotline: 0123 456 789</li>
                 </ul>
+
             </div>
 
             <!-- Cột Hệ thống chi nhánh -->
             <div class="col-md-4">
-                <h5><b>📍 HỆ THỐNG CHI NHÁNH</b></h5>
+                <h5><b>📍 ĐỊA CHỈ</b></h5>
                 <ul class="branch-list">
-                    <p>🏢 83/86, Nguyễn Thị Minh Khai, Quận 1</p>
                     <p>🏢 102, Nguyễn Gia Trí, Quận Bình Thạnh</p>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
+<!-- Icon cố định góc phải -->
+<div class="fixed-icon" style="bottom: 470px;">
+    <i class="fa-solid fa-comment"></i>
+</div>
+<div class="fixed-icon" style="bottom: 400px;"><i class="fa-solid fa-calendar"></i></div>
+<div class="fixed-icon" style="bottom: 330px;"><i class="fa-solid fa-phone"></i></div>
+<footer class="text-center">
+    <p>&copy; 2025 KAMOI Skincare. All rights reserved.</p>
+</footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
