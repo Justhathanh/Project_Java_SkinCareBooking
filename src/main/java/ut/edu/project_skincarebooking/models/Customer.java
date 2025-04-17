@@ -25,8 +25,12 @@ public class Customer extends Person implements IAccount {
     private int loyaltyPoints;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    @JsonBackReference(value = "customer-appointments")
+    @JsonManagedReference(value = "customer-appointments")  // Thay vì @JsonBackReference
     private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "customer-ratings")
+    private List<Rating> ratings = new ArrayList<>();
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "customer-feedbacks")

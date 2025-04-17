@@ -31,8 +31,12 @@ public class SkinTherapist extends Employee implements IScheduleManagement {
     private Map<String, String> workSchedule = new HashMap<>();
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL)
-    @JsonBackReference(value = "therapist-appointments")
+    @JsonManagedReference(value = "therapist-appointments")  // Thay vì @JsonBackReference
     private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "therapist-ratings")
+    private List<Rating> ratings = new ArrayList<>();
 
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -1,6 +1,7 @@
 package ut.edu.project_skincarebooking.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,7 +23,7 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    @JsonManagedReference(value = "customer-appointments")
+    @JsonBackReference(value = "customer-appointments")  // Thay vì @JsonManagedReference
     private Customer customer;
 
     @Column(nullable = false)
@@ -36,7 +37,7 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "therapist_id")
-    @JsonManagedReference(value = "therapist-appointments")
+    @JsonBackReference(value = "therapist-appointments")  // Thay vì @JsonManagedReference
     private SkinTherapist therapist;
 
     @ManyToOne
@@ -47,6 +48,11 @@ public class Appointment {
     @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "appointment-feedback")
     private Feedback feedback;
+
+    @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("appointment")
+    private Rating rating;
+
     // Logic hủy cuộc hẹn
     public void cancelAppointment() {
         this.status = "Cancelled";
