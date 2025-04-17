@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Báo cáo Đặt chỗ</title>
+    <style>
+        /* Định nghĩa font toàn bộ trang */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Wrapper container */
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            background-color: #e6f2ff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0066cc;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #b3d1ff;
+        }
+
+        table th {
+            background-color: #0066cc;
+            color: white;
+            font-size: 16px;
+        }
+
+        table td {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Hover effect for rows */
+        table tr:hover {
+            background-color: #f1f7ff;
+        }
+
+        /* Style for pagination or additional actions */
+        .actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .actions a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .actions a:hover {
+            background-color: #004d99;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            table th, table td {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .actions a {
+                padding: 8px 15px;
+                margin: 5px;
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Báo cáo Đặt chỗ</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên Khách hàng</th>
+            <th>Ngày Đặt</th>
+            <th>Chi tiết</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.id}"></td>
+            <td th:text="${booking.customerName}"></td>
+            <td th:text="${booking.bookingDate}"></td>
+            <td th:text="${booking.bookingDetails}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Additional action buttons -->
+    <div class="actions">
+        <a href="#">Xuất PDF</a>
+        <a href="#">Tạo Đặt chỗ Mới</a>
+    </div>
+</div>
+</body>
+</html>

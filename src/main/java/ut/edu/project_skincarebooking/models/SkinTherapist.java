@@ -1,10 +1,12 @@
 package ut.edu.project_skincarebooking.models;
-import ut.edu.project_skincarebooking.models.Appointment;
+
 import jakarta.persistence.*;
 import lombok.*;
-import ut.edu.project_skincarebooking.interfaces.IScheduleManagement;
 import lombok.experimental.SuperBuilder;
+import ut.edu.project_skincarebooking.interfaces.IScheduleManagement;
+
 import java.util.*;
+
 @Entity
 @Table(name = "skin_therapists")
 @Data
@@ -14,25 +16,23 @@ import java.util.*;
 public class SkinTherapist extends Employee implements IScheduleManagement {
     @Column(nullable = false)
     private String specialization;
+
     @Column(nullable = false)
     private String name;
 
-    @ElementCollection
+    @Getter
+    @Setter
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "therapist_schedule", joinColumns = @JoinColumn(name = "therapist_id"))
     @MapKeyColumn(name = "day_of_week")
     @Column(name = "working_hours", nullable = false)
-    private Map<String, String> workSchedule;
+    private Map<String, String> workSchedule = new HashMap<>();
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Appointment> appointments;
+    private List<Appointment> appointments = new ArrayList<>();
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Schedule> schedules;
-
-
-    public List<String> getWorkSchedule() {
-        return List.copyOf(workSchedule.values());
-    }
+    private List<Schedule> schedules = new ArrayList<>();
 
     public void performService() {
         // TODO: Logic thực hiện dịch vụ
@@ -42,20 +42,18 @@ public class SkinTherapist extends Employee implements IScheduleManagement {
         // TODO: Logic cập nhật kết quả
     }
 
-  public List<Appointment> viewAppointments() {
+    public List<Appointment> viewAppointments() {
         return appointments;
     }
 
     @Override
-    public List<String> viewSchedule() {
-        return List.copyOf(workSchedule.values());
+    public Map<String, String> viewSchedule() {
+        return workSchedule;
     }
-
 
     @Override
     public boolean updateSchedule() {
         // TODO: Logic cập nhật lịch trình
         return false;
     }
-
 }

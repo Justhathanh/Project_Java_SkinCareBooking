@@ -1,9 +1,8 @@
 package ut.edu.project_skincarebooking.models;
-
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.*;
 
-import java.util.List;
 
 @Entity
 @Table(name = "staffs")
@@ -28,8 +27,8 @@ public class Staff extends Employee {
     }
 
     @Override
-    public List<String> viewSchedule() {
-        return List.of();
+    public Map<String, String> viewSchedule() {
+        return new HashMap<>();
     }
 }
 

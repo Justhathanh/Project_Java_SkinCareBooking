@@ -1,22 +1,27 @@
 package ut.edu.project_skincarebooking.models;
+
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "blogs")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "users")
-public class User {
+public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
-    private String username;
+    private String title;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(length = 10000)
+    private String content;
 
+    private String author;
+
+    private LocalDateTime createdAt;
 }

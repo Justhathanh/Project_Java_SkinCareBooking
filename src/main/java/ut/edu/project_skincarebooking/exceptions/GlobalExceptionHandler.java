@@ -19,7 +19,11 @@ public class GlobalExceptionHandler {
         );
     }
 
-    @ExceptionHandler({UserNotFoundException.class, ServiceNotFoundException.class, AppointmentNotFoundException.class})
+    @ExceptionHandler({
+            UserNotFoundException.class,
+            ServiceNotFoundException.class,
+            CustomerNotFoundException.class,
+            AppointmentNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Map<String, Object> handleNotFoundException(RuntimeException e) {
         return buildErrorResponse(e.getMessage(), HttpStatus.NOT_FOUND);

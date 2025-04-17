@@ -1,0 +1,188 @@
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Định dạng chung */
+body {
+    background-color: #fff0f5; /* Màu hồng nhạt nhẹ nhàng */
+    color: #333;
+}
+
+/* ====== NAVBAR ====== */
+.navbar {
+    background-color: hotpink !important;
+    padding: 15px;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white !important;
+}
+
+.navbar .nav-link {
+    color: white !important;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #ffddf4 !important;
+}
+
+/* ====== HEADER ====== */
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    color: hotpink;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* ====== FORM ĐẶT LỊCH ====== */
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề form */
+h2 {
+    text-align: center;
+    color: hotpink;
+    font-weight: bold;
+}
+
+/* Nhãn input */
+.form-label {
+    font-weight: 600;
+    color: #444;
+}
+
+/* Input và Select */
+.form-control,
+.form-select {
+    border: 2px solid #ff69b4;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #d40078;
+    box-shadow: 0px 0px 5px rgba(255, 20, 147, 0.5);
+}
+
+/* ====== BUTTON ====== */
+.btn-pink {
+    background-color: hotpink !important;
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-pink:hover {
+    background-color: #ff1493 !important;
+}
+
+/* ====== MODAL ====== */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: hotpink;
+    color: white;
+}
+
+.modal-body {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* ====== CHUYÊN VIÊN ====== */
+.specialist-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.specialist-card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    background: white;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: hotpink;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+/* Hình ảnh chuyên viên */
+.card-img-top {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ====== RESPONSIVE (Mobile) ====== */
+@media (max-width: 768px) {
+    .navbar .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .navbar .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+/* đội ngũ chuyên viên */
+.doi_ngu_chuyen_vien-img {
+    width: 1555px; /* Ảnh co dãn theo kích thước của container */
+    height: 500px;
+    object-fit: cover;
+    max-width: 10000px; /* Giới hạn kích thước tối đa */
+    display: block;
+    margin: 20px auto; /* Căn giữa */
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}

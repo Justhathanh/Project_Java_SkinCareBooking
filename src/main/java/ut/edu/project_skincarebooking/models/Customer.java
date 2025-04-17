@@ -6,7 +6,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "customers")
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,6 +34,8 @@ public class Customer extends Person implements IAccount {
     public void logout() {
 
     }
+    @Column(nullable = false, unique = true)
+    private String phone;
 
     @Override
     public void updateProfile() {
