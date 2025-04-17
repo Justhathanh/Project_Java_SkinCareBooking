@@ -1,5 +1,7 @@
 package ut.edu.project_skincarebooking.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -28,11 +30,22 @@ public class SkinTherapist extends Employee implements IScheduleManagement {
     @Column(name = "working_hours", nullable = false)
     private Map<String, String> workSchedule = new HashMap<>();
 
+    @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "therapist-appointments")  // Thay vì @JsonBackReference
+    private List<Appointment> appointments;
+
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Appointment> appointments = new ArrayList<>();
+    @JsonManagedReference(value = "therapist-ratings")
+    private List<Rating> ratings = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Schedule> schedules = new ArrayList<>();
+
+    @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "therapist-feedbacks")
+    private List<Feedback> feedbacks = new ArrayList<>();
+
 
     public void performService() {
         // TODO: Logic thực hiện dịch vụ

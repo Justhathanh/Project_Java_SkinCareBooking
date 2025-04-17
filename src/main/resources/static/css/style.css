@@ -1,12 +1,71 @@
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #ddd9d9;
+    background-color: #ffddf4;
 }
 
 /* Navbar */
 .navbar {
-    box-shadow: 0 4px 6px rgb(253, 254, 255);
+    background-color: #fff0f5 !important;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* đảm bảo hiển thị trên các phần khác */
+}
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #EF4A7B !important;
+}
+/* tab trang chủ */
+.navbar .nav-link {
+    color: #EF4A7B !important;
+    transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #ffddf4 !important;
+}
+
+.btn-book {
+    background: #f7a6c3;
+    border: none;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 30px;
+}
+.btn-book:hover {
+    background: #d63384;
+}
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #fff0f5, #ffe1ec);
+}
+.hero h1 {
+    font-size: 3rem;
+    color: #e282e2;
+}
+.hero p {
+    font-size: 1.2rem;
+    color: #5c4b51;
+    margin-bottom: 30px;
+}
+.card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card-title {
+    color: #e282e2;
+    font-weight: bold;
 }
 
 /* Banner */
@@ -35,7 +94,30 @@ body {
 
 /* Footer */
 footer {
-    background-color: #6a91b8;
+    background-color: #eec9d2;
+    padding: 40px 0;
+    color: #5c4b51;
+}
+footer a {
+    color: #5c4b51;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #d63384;
+}
+/*icon góc phải */
+.fixed-icon {
+    position: fixed;       /* Luôn cố định vị trí khi cuộn trang */
+    right: 20px;           /* Cách mép phải 20px */
+    bottom: 100px;         /* Cách mép dưới 100px */
+    background-color: white; /* màu nền (nếu cần) */
+    color: #EF4A7B;          /* màu icon */
+    padding: 12px;
+    border-radius: 30%;    /* hình tròn */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); /* bóng nhẹ */
+    font-size: 23px;       /* kích thước icon */
+    z-index: 999;          /* nằm trên cùng */
+    cursor: pointer;       /* biểu tượng con trỏ tay */
 }
 @keyframes pulse {
     0% {

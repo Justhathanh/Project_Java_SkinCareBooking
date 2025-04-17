@@ -1,9 +1,10 @@
 package ut.edu.project_skincarebooking.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "services")
@@ -39,7 +40,13 @@ public class ServiceEntity {
     private List<SkinTherapist> therapists;
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "service-appointments")
     private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "service-feedbacks")
+    private List<Feedback> feedbacks = new ArrayList<>();
+
     public ServiceEntity(Long id, String serviceName, String description, double price, int duration) {
         this.id = id;
         this.serviceName = serviceName;

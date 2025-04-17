@@ -1,8 +1,10 @@
 package ut.edu.project_skincarebooking.models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ut.edu.project_skincarebooking.interfaces.IAccount;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "customers")
@@ -22,8 +24,18 @@ public class Customer extends Person implements IAccount {
     @Column(nullable = false)
     private int loyaltyPoints;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "customer-appointments")  // Thay vì @JsonBackReference
     private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "customer-ratings")
+    private List<Rating> ratings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "customer-feedbacks")
+    private List<Feedback> feedbacks = new ArrayList<>();
+
 
     @Override
     public boolean login() {
