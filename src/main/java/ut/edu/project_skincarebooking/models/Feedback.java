@@ -1,8 +1,11 @@
 package ut.edu.project_skincarebooking.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.Date;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "feedbacks")
@@ -19,18 +22,30 @@ public class Feedback {
 
     @OneToOne
     @JoinColumn(name = "appointment_id", nullable = false)
+    @JsonBackReference(value = "appointment-feedback")
     private Appointment appointment;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
+    @JsonBackReference(value = "customer-feedbacks")
     private Customer customer;
 
+    @ManyToOne
+    @JoinColumn(name = "therapist_id")
+    @JsonBackReference(value = "therapist-feedbacks")
+    private SkinTherapist therapist;
+
+    @ManyToOne
+    @JoinColumn(name = "service_id")
+    @JsonBackReference(value = "service-feedbacks")
+    private ServiceEntity service;
+
     @Column(nullable = false)
-    private int rating; // 1-5 stars
+    private int rating;
 
     @Column(columnDefinition = "TEXT")
     private String comment;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime createdAt;
 }
