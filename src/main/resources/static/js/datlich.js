@@ -50,3 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("✅ File datlich.js đã được tải thành công!");
 });
+
+modal.show();
+setTimeout(() => {
+    document.getElementById("bookingForm").submit();
+}, 1500); // chờ 1.5s rồi submit

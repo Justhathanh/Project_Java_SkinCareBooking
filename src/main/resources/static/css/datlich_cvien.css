@@ -281,12 +281,27 @@ img {
     color: #EF4A7B;
     background-color: #ffddf4;
     display: inline-block;
-    padding: 8px 15px;
+    padding: 6px 11px;
     border: 2px solid hotpink;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 .text-pink {
     color: #EF4A7B;
+}
+
+.top-header {
+    background-color: #fff0f5;
+    border-bottom: 1px solid #ffc0cb;
+}
+
+.hotline {
+    background-color: #ffe6f0;
+    padding: 6px 16px;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    color: #EF4A7B;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
