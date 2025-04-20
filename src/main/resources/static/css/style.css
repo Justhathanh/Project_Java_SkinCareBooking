@@ -1,3 +1,8 @@
+body, header {
+    margin: 0;
+    padding: 0;
+}
+
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -190,4 +195,143 @@ footer a:hover {
     width: 100%;
     aspect-ratio: 16/9; /* Giữ tỷ lệ 16:9 */
     object-fit: cover;
+}
+
+
+
+
+/* trà*/
+.text-over {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.7); /* nền mờ trắng để dễ đọc hơn */
+    color: #EF4A7B;
+    font-size: 36px;
+    font-weight: 700;
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-shadow: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.icon-leaf {
+    font-size: 38px;
+    color: #EF4A7B;
+}
+
+/* Nút bắt đầu trắc nghiệm */
+.btn-pink {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 36px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.btn-pink:hover {
+    transform: translateX(-50%) scale(1.07);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+}
+
+
+/* Tiêu đề chính */
+.container.text-center h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Section About */
+.about-section {
+    background-color: #fff0f5;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin: 0 10%;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #d63384;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Dịch vụ phổ biến */
+#services {
+    background-color: #fff;
+    border-radius: 16px;
+    margin: 40px auto;
+    max-width: 90%;
+}
+
+#services h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+/* Card dịch vụ */
+.card {
+    border: none;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-radius: 16px 16px 0 0;
+    object-fit: cover;
+    height: 220px;
+}
+
+.card-title {
+    color: #e83e8c;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #555;
+}
+/* v */
+/* Giảm khoảng cách dưới banner */
+header.banner {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Fix khoảng cách ảnh bị kéo xuống */
+header.banner .image-container {
+    position: relative;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
 }
