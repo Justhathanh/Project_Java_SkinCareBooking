@@ -1,12 +1,15 @@
 package ut.edu.project_skincarebooking.dto.AuthDTO;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import ut.edu.project_skincarebooking.models.Role;
 
-@Getter
-@Setter
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RegisterRequest {
     private String username;
     private String password;
-    private String role;
+    private Role role;
+    private String email;
 }

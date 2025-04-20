@@ -1,0 +1,19 @@
+body {
+    background-color: #ffddf4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-book {
+    background: #f7a6c3;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 10px 30px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-book:hover {
+    background: #d63384;
+    transform: scale(1.05);
+}

@@ -7,7 +7,8 @@ import lombok.experimental.SuperBuilder;
 import java.util.List;
 @SuperBuilder
 @MappedSuperclass
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class Employee {

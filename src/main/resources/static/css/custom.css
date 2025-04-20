@@ -1,0 +1,27 @@
+body.bg-gradient {
+    background: linear-gradient(to right, #dfe9f3, #ffffff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card.custom-card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.gradient-header {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    padding: 20px;
+    font-weight: bold;
+}
+
+.btn-gradient {
+    background: linear-gradient(to right, #43e97b, #38f9d7);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, #38f9d7, #43e97b);
+    transform: scale(1.05);
+}
