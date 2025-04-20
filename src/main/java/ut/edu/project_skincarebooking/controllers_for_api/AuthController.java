@@ -13,7 +13,7 @@ import ut.edu.project_skincarebooking.services.interF.AuthService;
 @RequiredArgsConstructor
 public class AuthController {
 
-    public final AuthService authService;
+    private final AuthService authService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
