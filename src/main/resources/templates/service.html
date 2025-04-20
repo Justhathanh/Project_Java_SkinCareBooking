@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>KAMOI - Skincare Booking</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/service.css}">
     <link rel="icon" type="image/png" th:href="@{/images/tab.png}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -35,9 +35,9 @@
 </nav>
 
 <!-- Tiêu đề trang -->
-<header class="text-center py-5 bg-primary text-white">
+<header class=" text-center py-5 custom-header text-white">
     <h1>Dịch Vụ Chăm Sóc Da</h1>
-    <p>Chọn dịch vụ phù hợp để có làn da khỏe đẹp</p>
+    <p>Khám phá dịch vụ chăm sóc da giúp bạn sở hữu làn da khỏe mạnh và tươi trẻ.</p>
 </header>
 
 <!-- Danh sách dịch vụ -->
@@ -45,179 +45,256 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/facial.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="Facial Image">
-
-                <div class="card-body">
+                <img th:src="@{/images/facial.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="Facial">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Chăm Sóc Da Mặt Cơ Bản</h5>
                     <p class="card-text">Làm sạch sâu, cấp ẩm và phục hồi da.</p>
-                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="price mb-2">Giá: 100.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/tmcs.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="tri-mun-chuyen-sau">
-                <div class="card-body">
+                <img th:src="@{/images/tmcs.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="tri-mun-chuyen-sau">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Trị Mụn Chuyên Sâu</h5>
                     <p class="card-text">Giải pháp chuyên biệt giúp giảm mụn, làm mờ vết thâm.</p>
-                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="price mb-2">Giá: 200.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/laser.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="laser">
-                <div class="card-body">
+                <img th:src="@{/images/laser.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="laser">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Liệu pháp tái tạo da bằng laser</h5>
                     <p class="card-text">Công nghệ hiện đại giúp cải thiện nếp nhăn, da không đều màu.</p>
-                    <a href="datlich.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="price mb-2">Giá: 300.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/trehoaface.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="tre-hoa">
-                <div class="card-body">
+                <img th:src="@{/images/trehoaface.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="tre-hoa">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Trẻ hóa da bằng công nghệ cao</h5>
                     <p class="card-text">Giúp da căng bóng, mịn màng và tràn đầy sức sống.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="price mb-2">Giá: 300.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/brightface.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="trang-da">
-                <div class="card-body">
+                <img th:src="@{/images/brightface.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="trang-da">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Liệu trình dưỡng trắng da</h5>
                     <p class="card-text">Tăng cường độ sáng, giúp da trắng hồng tự nhiên.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="price mb-2">Giá: 300.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/detox.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Massage thư giãn và detox da</h5>
                     <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="price mb-2">Giá: 150.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/xonghoiface.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="xonghoithaoduoc">
-                <div class="card-body">
+                <img th:src="@{/images/xonghoiface.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="xonghoithaoduoc">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Xông hơi thảo dược</h5>
                     <p class="card-text">Làm sạch sâu, giúp da hấp thụ dưỡng chất tốt hơn.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="price mb-2">Giá: 100.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/treatment.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="dieu tri da hu ton">
-                <div class="card-body">
-                    <h5>Điều trị sẹo rỗ, thâm</h5>
-                    <p>Phục hồi làn da mịn màng với liệu pháp hiện đại.</p>
+                <img th:src="@{/images/rotham.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="dieu tri da hu ton">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Điều trị rỗ, thâm</h5>
+                    <p class="card-text">Phục hồi làn da mịn màng với liệu pháp hiện đại.</p>
+                    <p class="price mb-2">Giá: 200.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/rf.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="RF">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Nâng cơ trẻ hóa da bằng RF</h5>
-                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="card-text">Căng da, nâng cơ mặt, giảm nếp nhăn và trẻ hóa làn da..</p>
+                    <p class="price mb-2">Giá: 300.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/lankim.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="lăn kim">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Chăm sóc da sau lăn kim</h5>
-                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="card-text">Làm dịu da, phục hồi nhanh, giảm đỏ và cấp ẩm chuyên sâu.</p>
+                    <p class="price mb-2">Giá: 350.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/peel.webp}" class="img-fluid object-fit-cover" style="height: 200px;" alt="peel">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Peel da hóa học</h5>
-                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="card-text">Loại bỏ tế bào chết, tái tạo làn da sáng khỏe.</p>
+                    <p class="price mb-2">Giá: 250.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/nam.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="nam">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Chăm sóc da chuyên biệt cho nam</h5>
-                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="card-text">Giải pháp chăm sóc da dành riêng cho nam giới, giảm dầu và cải thiện da khỏe mạnh.</p>
+                    <p class="price mb-2">Giá: 150.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/caytinhchat.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="cấy tinh chất">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Cấy tinh chất cấp ẩm</h5>
-                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="card-text">Bổ sung tinh chất chuyên sâu, dưỡng ẩm và phục hồi làn da thiếu sức sống.</p>
+                    <p class="price mb-2">Giá: 200.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/tannhang.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="nám và tàn nhang">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Điều trị nám, tàn nhang</h5>
-                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="card-text">Làm mờ các đốm nám, tàn nhang, đều màu và sáng da.</p>
+                    <p class="price mb-2">Giá: 200.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body">
+                <img th:src="@{/images/danhaycam.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="treatment">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Chăm sóc da nhạy cảm</h5>
-                    <p class="card-text">Thư giãn, giảm căng thẳng, kích thích tuần hoàn máu.</p>
-                    <a href="booking.html" class="btn btn-primary">Đặt Lịch</a>
+                    <p class="card-text">Làm dịu, giảm kích ứng, tăng sức đề kháng cho da yếu.</p>
+                    <p class="price mb-2">Giá: 200.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body text-center">
+                <img th:src="@{/images/massage.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="trị liệu">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Massage trị liệu </h5>
-                    <p class="card-text">Một phương pháp chăm sóc sức khỏe sử dụng các kỹ thuật xoa bóp, ấn huyệt, kéo giãn cơ và các phương pháp vật lý trị liệu khác để điều trị các vấn đề về cơ xương khớp, thần kinh và các vấn đề sức khỏe khác.</p>
+                    <p class="card-text">Phương pháp chăm sóc sức khỏe sử dụng các kỹ thuật xoa bóp, ấn huyệt, kéo giãn cơ và các phương pháp vật lý trị liệu khác để điều trị các vấn đề về cơ xương khớp, thần kinh và các vấn đề sức khỏe khác.</p>
+                    <p class="price mb-2">Giá: 200.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card h-100">
-                <img src="/static/images/detox.jpg" class="img-fluid object-fit-cover" style="height: 200px;" alt="detox">
-                <div class="card-body text-center">
+                <img th:src="@{/images/body.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="body">
+                <div class="card-body d-flex flex-column justify-content-between">
                     <h5 class="card-title">Massage toàn thân</h5>
                     <p class="card-text">Giúp giảm căng thẳng và lưu thông máu tốt, giảm đau nhức cơ bắp, tăng cường sự linh hoạt và tạo cảm giác thư thái, dễ chịu...</p>
+                    <p class="price mb-2">Giá: 200.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <img th:src="@{/images/goidau.jpg}" class="img-fluid object-fit-cover" style="height: 200px;" alt="goidauduongsinh">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Gội đầu dưỡng sinh</h5>
+                    <p class="card-text">Gội đầu dưỡng sinh là phương pháp gội đầu kết hợp với các phương pháp massage, xoa bóp, bấm huyệt vùng đầu, vai, gáy, cổ giúp xả stress hiệu quả</p>
+                    <p class="price mb-2">Giá: 100.000đ</p>
+                    <a th:href="@{datlich}" class="btn btn-book btn-pink btn-pulse ">Đặt Lịch</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Footer -->
-<footer class="text-center text-white bg-dark p-3 mt-5">
-    <p>&copy; 2025 Skincare Booking. All rights reserved by KAMOI team.</p>
-</footer>
 
+<!-- Footer -->
+<footer class=" text-center">
+    <div class="container">
+        <div class="row">
+            <!-- Cột Giới thiệu & Mạng xã hội -->
+            <div class="col-md-4">
+                <!--                <img src="/static/images/tab.png" alt="Logo" style="width: 90px;">-->
+                <h5><b>💖KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
+                <p>Sự kết hợp hoàn hảo giữa khoa học và thiên nhiên, mang đến giải pháp chăm sóc da an toàn và hiệu quả.</p>
+                <!-- Icon mạng xã hội -->
+                <div class="social-icons d-flex justify-content-center">
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/></a>
+                </div>
+                <h6 class="mt-3"><b>⏰ Thời gian làm việc</b></h6>
+                <p>09:00 - 22:00 | Thứ 2 - Chủ Nhật (Kể cả dịp lễ, Tết)</p>
+            </div>
+
+            <!-- Cột Thông tin liên hệ -->
+            <div class="col-md-4">
+                <h5><b>📞 THÔNG TIN LIÊN HỆ</b></h5>
+                <p>📧 Email: <a href="mailto:KAMOI.skincare@gmail.com">KAMOI.skincare@gmail.com</a></p>
+                <ul class="contact-list">
+                    <li> Hotline: 0123 456 789</li>
+                </ul>
+            </div>
+
+            <!-- Cột Hệ thống chi nhánh -->
+            <div class="col-md-4">
+                <h5><b>📍 ĐỊA CHỈ</b></h5>
+                <ul class="branch-list">
+                    <p>🏢 102, Nguyễn Gia Trí, Quận Bình Thạnh</p>
+                </ul>
+            </div>
+            <div class="text-center">
+                 <p><b>&copy; 2025 KAMOI Skincare. All rights reserved.</b></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--&lt;!&ndash; Icon cố định góc phải &ndash;&gt;-->
+<!--<div class="fixed-icon" style="bottom: 470px;">-->
+<!--    <i class="fa-solid fa-comment"> </i>-->
+<!--    <a th:href="@{/login}"><i class="fa-solid fa-comment"></i></a>-->
+<!--</div>-->
+<!--<div class="fixed-icon" style="bottom: 400px;"><i class="fa-solid fa-calendar"></i></div>-->
+<!--<div class="fixed-icon" style="bottom: 330px;"><i class="fa-solid fa-phone"></i></div>-->
+<!--<footer class="text-center">-->
+<!--    <p>&copy; 2025 KAMOI Skincare. All rights reserved.</p>-->
+<!--</footer>-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/script.js" defer></script>
 </body>
