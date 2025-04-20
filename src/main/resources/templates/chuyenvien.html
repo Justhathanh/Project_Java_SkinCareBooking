@@ -2,22 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Đặt lịch</title>
+    <title>Chuyên Viên</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/datlich_cvien.css}">
     <link rel="icon" type="image/png" th:href="@{/images/tab.png}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
-
 </head>
-
 
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
+<nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container d-flex align-items-center justify-content-between">
         <img th:src="@{/images/logoKAMOI.png}" class="img-fluid" alt="Logo" style="height: 60px;">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -66,121 +62,126 @@
     </div>
 </nav>
 
+<img th:src="@{/images/chuyen_vien.jpg}" alt="Đội ngũ chuyên viên chuyên nghiệp" class="chuyen_vien-img">
+<!-- Giới thiệu chuyên môn -->
+<div class="container py-2">
+    <div class="row text-center">
+        <!-- Box 1 -->
+        <div class="col-md-4 mb-4 box-icon">
+            <i class="fa-solid fa-star"></i>
+            <h5><strong>Giàu kinh nghiệm</strong></h5>
+            <p>
+                KamoiSpa.Vn tự hào với đội ngũ chuyên viên giàu kinh nghiệm, tận tâm và chuyên nghiệp hàng đầu trong lĩnh vực thẩm mỹ.
+                Mỗi chuyên viên đều am hiểu sâu sắc các phương pháp tiên tiến, cập nhật xu hướng làm đẹp mới nhất đồng thời luôn lắng nghe và thấu hiểu nhu cầu của từng khách hàng để mang đến dịch vụ an toàn, hiệu quả với kết quả tối ưu.
+            </p>
+        </div>
 
-<header class="text-center py-4">
-    <h1 class="text-pink">Đặt lịch tại KAMOI Spa</h1>
-</header>
+        <!-- Box 2 -->
+        <div class="col-md-4 mb-4 box-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h5><strong>Nghiệp vụ chuyên môn cao</strong></h5>
+            <p>
+                Đội ngũ chuyên gia sở hữu trình độ chuyên môn cao và kinh nghiệm dày dặn trong cả lĩnh vực thẩm mỹ nội khoa và ngoại khoa. Sự kết hợp hoàn hảo này mang đến cho khách hàng những giải pháp làm đẹp toàn diện, từ chăm sóc da chuyên sâu đến các kỹ thuật thẩm mỹ tiên tiến.
+            </p>
+        </div>
 
-<section class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow p-4">
-                <h2 class="text-center text-pink">Thông tin khách hàng</h2>
-                <form id="bookingForm">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Họ và Tên:</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Số điện thoại:</label>
-                        <input type="tel" id="phone" class="form-control" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại (10-11 số)">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Địa chỉ:</label>
-                        <input type="text" id="address" class="form-control" required>
-                    </div>
-
-                    <h2 class="text-center text-pink">Chọn thông tin đặt lịch</h2>
-
-                    <div class="mb-3">
-                        <label for="service" class="form-label">Chọn dịch vụ:</label>
-                        <select id="service" class="form-select">
-                            <option value="">-- Chọn dịch vụ --</option>
-                            <option value="tam_trang">Chăm sóc da mặt cơ bản</option>
-                            <option value="tri_mun">Trị mụn chuyên sâu</option>
-                            <option value="mat_xa">Liệu pháp tái tạo bằng laser</option>
-                            <option value="meso">Trẻ hóa da bằng công nghệ cao</option>
-                            <option value="phun_xam">Liệu trình dưỡng trắng da</option>
-                            <option value="phun_xam">Massage thư giãn và Detox da</option>
-                            <option value="phun_xam">Xông hơi thảo dược</option>
-                            <option value="phun_xam">Điều trị sẹo rỗ, thâm</option>
-                            <option value="phun_xam">Nâng da trẻ hóa bằng RF</option>
-                            <option value="phun_xam">Chăm sóc da sau lăn kim</option>
-                            <option value="phun_xam">Pell da hóa học</option>
-                            <option value="phun_xam">Chăm sóc da chuyên biệt cho nam</option>
-                            <option value="phun_xam">Cấy tinh chất cấp ẩm</option>
-                            <option value="phun_xam">Điều trị nám, tàn nhang</option>
-                            <option value="phun_xam">Chăm sóc da nhạy cảm</option>
-                            <option value="phun_xam">Massage trị liệu</option>
-                            <option value="phun_xam">Massage toàn thân</option>
-                            <option value="phun_xam">Gội đầu dưỡng sinh</option>
-
-
-
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="specialist" class="form-label">Chọn chuyên viên:</label>
-                        <select id="specialist" class="form-select">
-                            <option value="">-- Chọn chuyên viên --</option>
-                            <option value="khong_chon_chuyen_vien">Không chọn trước chuyên viên</option>
-                            <option value="nguyen_thi_mai">Đinh Thị Thu Trà</option>
-                            <option value="tran_van_phuc">Nguyễn Ngọc Như Ý</option>
-                            <option value="hoang_lan_anh">Trần Thị NGuyệt Anh</option>
-                            <option value="hoang_lan_anh">Hà Văn Thành</option>
-                            <option value="hoang_lan_anh">Nguyễn Hoàng Minh Tâm</option>
-
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="date" class="form-label">Chọn ngày:</label>
-                        <input type="date" id="date" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="time" class="form-label">Chọn giờ:</label>
-                        <input type="time" id="time" class="form-control" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-pink w-100">Xác nhận đặt lịch</button>
-                </form>
-            </div>
+        <!-- Box 3 -->
+        <div class="col-md-4 mb-4 box-icon">
+            <i class="fa-solid fa-user-check"></i>
+            <h5><strong>Tận tâm với khách hàng</strong></h5>
+            <p>
+                Với lòng nhiệt thành và sự tận tâm, đội ngũ bác sĩ và chuyên gia thẩm mỹ luôn đặt lợi ích của khách hàng lên hàng đầu, sẵn sàng lắng nghe, tư vấn và đồng hành cùng bạn trên hành trình chăm sóc sức khỏe và sắc đẹp toàn diện.
+            </p>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Modal thành công -->
-<div class="modal fade" id="successModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content text-center">
-            <div class="modal-header">
-                <h5 class="modal-title">Thông báo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
+<!-- Chuyên Viên -->
+<div class="container mt-2">
+    <div class="row">
+        <h1 class="dscv text-center">👫Danh sách chuyên viên </h1>
+        <!-- Chuyên Viên 1 -->
+        <div class="col-md-4">
+            <div class="card specialist-card shadow-lg">
+                <img th:src="@{/images/cv1.jpg}" class="card-img-top" alt="Chuyên viên 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: hotpink;">Đinh Thị Thu Trà</h5>
+                    <p class="card-text"><strong>Kinh nghiệm:</strong> 7 năm</p>
+                    <p class="card-text"><strong>Dịch vụ:</strong> Chăm sóc da mặt, Massage trị liệu, Điều trị laser </p>
+                    <p class="card-text"><strong>Đánh giá:</strong> ⭐⭐⭐⭐⭐ (5.0)</p>
+                </div>
             </div>
-            <div class="modal-body">
-                <p class="text-success fw-bold">Đặt lịch thành công!</p>
+        </div>
+
+        <!-- Chuyên Viên 2 -->
+        <div class="col-md-4">
+            <div class="card specialist-card shadow-lg">
+                <img th:src="@{/images/cv2.jpg}" class="card-img-top" alt="Chuyên viên 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: hotpink;">Nguyễn Ngọc Như Ý</h5>
+                    <p class="card-text"><strong>Kinh nghiệm:</strong> 10 năm</p>
+                    <p class="card-text"><strong>Dịch vụ:</strong> Giảm béo, Gội đâu dưỡng sinh, Nâng cơ trẻ hóa</p>
+                    <p class="card-text"><strong>Đánh giá:</strong> ⭐⭐⭐⭐✨ (4.7)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chuyên Viên 3 -->
+        <div class="col-md-4">
+            <div class="card specialist-card shadow-lg">
+                <img th:src="@{/images/cv3.jpg}" class="card-img-top" alt="Chuyên viên 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: hotpink;">Trần Thị Nguyệt Anh</h5>
+                    <p class="card-text"><strong>Kinh nghiệm:</strong> 5 năm</p>
+                    <p class="card-text"><strong>Dịch vụ:</strong> Massage toàn thân, Điều trị nám, Trẻ hóa da</p>
+                    <p class="card-text"><strong>Đánh giá:</strong> ⭐⭐⭐⭐⭐ (5.0)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chuyên Viên 4 -->
+        <div class="col-md-4 mt-4">
+            <div class="card specialist-card shadow-lg">
+                <img th:src="@{/images/cv4.jpg}" class="card-img-top" alt="Chuyên viên 4">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: hotpink;">Hà Thành</h5>
+                    <p class="card-text"><strong>Kinh nghiệm:</strong> 8 năm</p>
+                    <p class="card-text"><strong>Dịch vụ:</strong> Mát xa mặt, Trẻ hóa da, Điều trị mụn</p>
+                    <p class="card-text"><strong>Đánh giá:</strong> ⭐⭐⭐⭐✨ (4.6)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chuyên Viên 5 -->
+        <div class="col-md-4 mt-4">
+            <div class="card specialist-card shadow-lg">
+                <img th:src="@{/images/cv5.jpg}" class="card-img-top" alt="Chuyên viên 5">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: hotpink;">Nguyễn Hoàng Tâm Minh</h5>
+                    <p class="card-text"><strong>Kinh nghiệm:</strong> 6 năm</p>
+                    <p class="card-text"><strong>Dịch vụ:</strong> Phun môi, Điều trị nám, Tiêm meso</p>
+                    <p class="card-text"><strong>Đánh giá:</strong> ⭐⭐⭐⭐⭐ (5.0)</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<footer class="kamoi-footer py-5">
+<!-- Footer -->z
+<footer class=" text-center">
     <div class="container">
         <div class="row">
             <!-- Cột Giới thiệu & Mạng xã hội -->
-            <div class="col-md-4 text-center text-md-start">
-                <img src="/static/images/tab.png" alt="Logo" style="width: 100px;">
-                <h5 class="mt-3">💖 <b>KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
+            <div class="col-md-4">
+                <!--                <img src="/static/images/tab.png" alt="Logo" style="width: 90px;">-->
+                <h5><b>💖KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
                 <p>Sự kết hợp hoàn hảo giữa khoa học và thiên nhiên, mang đến giải pháp chăm sóc da an toàn và hiệu quả.</p>
                 <!-- Icon mạng xã hội -->
                 <div class="social-icons d-flex justify-content-center">
-                    <a href="#"><img src="/static/icons/facebook.png" class="social-icon"></a>
-                    <a href="#"><img src="/static/icons/instagram.png" class="social-icon"></a>
-                    <a href="#"><img src="/static/icons/tiktok.png" class="social-icon"></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/></a>
                 </div>
                 <h6 class="mt-3"><b>⏰ Thời gian làm việc</b></h6>
                 <p>09:00 - 22:00 | Thứ 2 - Chủ Nhật (Kể cả dịp lễ, Tết)</p>
@@ -191,16 +192,15 @@
                 <h5><b>📞 THÔNG TIN LIÊN HỆ</b></h5>
                 <p>📧 Email: <a href="mailto:KAMOI.skincare@gmail.com">KAMOI.skincare@gmail.com</a></p>
                 <ul class="contact-list">
-                    <li> Hotline CN1: 0123 456 789</li>
-                    <li> Hotline CN2: 0123 654 987</li>
+                    <li> Hotline: 0123 456 789</li>
                 </ul>
+
             </div>
 
             <!-- Cột Hệ thống chi nhánh -->
             <div class="col-md-4">
-                <h5><b>📍 HỆ THỐNG CHI NHÁNH</b></h5>
+                <h5><b>📍 ĐỊA CHỈ</b></h5>
                 <ul class="branch-list">
-                    <p>🏢 83/86, Nguyễn Thị Minh Khai, Quận 1</p>
                     <p>🏢 102, Nguyễn Gia Trí, Quận Bình Thạnh</p>
                 </ul>
             </div>
@@ -208,41 +208,8 @@
     </div>
 </footer>
 
-<!-- ✅ Script xử lý logic -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("bookingForm");
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const address = document.getElementById("address").value.trim();
-            const service = document.getElementById("service").value;
-            const specialist = document.getElementById("specialist").value;
-            const date = document.getElementById("date").value;
-            const time = document.getElementById("time").value;
-
-            if (!name || !phone || !address || !service || !specialist || !date || !time) {
-                alert("Vui lòng nhập đầy đủ thông tin trước khi đặt lịch!");
-                return;
-            }
-
-            // Hiện modal thành công
-            const modal = new bootstrap.Modal(document.getElementById("successModal"));
-            modal.show();
-
-            // Redirect sau 2.5s
-            setTimeout(() => {
-                window.location.href = "/history";
-            }, 2500);
-        });
-    });
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/static/js/datlich.js"></script>
-
 </body>
 </html>
