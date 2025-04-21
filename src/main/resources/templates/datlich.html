@@ -30,6 +30,37 @@
                 <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien}">Chuyên Viên</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/history}">Lịch Sử</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/db_report}">Dashboard & Report</a></li>
+                <!-- Phần hiển thị người dùng đăng nhập -->
+                <!-- Người dùng đã đăng nhập -->
+                <li th:if="${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle me-1"></i>
+                        <span th:text="${#authentication.name}">Tên người dùng</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" th:href="@{/profile}">Hồ sơ</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a></li>
+                    </ul>
+                </li>
+                <!-- Người dùng chưa đăng nhập -->
+                <li th:if="${#authorization.expression('!isAuthenticated()')}" class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Đăng nhập</a>
+                </li>
+                <li th:if="${#authorization.expression('!isAuthenticated()')}" class="nav-item">
+                    <a class="nav-link" th:href="@{/register}">Đăng ký</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div th:if="${successMessage}" class="container mt-3">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <span th:text="${successMessage}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
             </ul>
         </div>
     </div>
@@ -67,21 +98,26 @@
                         <label for="service" class="form-label">Chọn dịch vụ:</label>
                         <select id="service" class="form-select">
                             <option value="">-- Chọn dịch vụ --</option>
-                <option value="4">Trẻ hóa da bằng công nghệ cao</option>
-                <option value="5">Liệu trình dưỡng trắng da</option>
-                <option value="6">Massage thư giãn và Detox da</option>
-                <option value="7">Xông hơi thảo dược</option>
-                <option value="8">Điều trị sẹo rỗ, thâm</option>
-                <option value="9">Nâng cơ trẻ hóa bằng RF</option>
-                <option value="10">Chăm sóc da sau lăn kim</option>
-                <option value="11">Peel da hóa học</option>
-                <option value="12">Chăm sóc da chuyên biệt cho nam</option>
-                <option value="13">Cấy tinh chất cấp ẩm</option>
-                <option value="14">Điều trị nám, tàn nhang</option>
-                <option value="15">Chăm sóc da nhạy cảm</option>
-                <option value="16">Massage trị liệu</option>
-                <option value="17">Massage toàn thân</option>
-                <option value="18">Gội đầu dưỡng sinh</option>
+                            <option value="tam_trang">Chăm sóc da mặt cơ bản</option>
+                            <option value="tri_mun">Trị mụn chuyên sâu</option>
+                            <option value="mat_xa">Liệu pháp tái tạo bằng laser</option>
+                            <option value="meso">Trẻ hóa da bằng công nghệ cao</option>
+                            <option value="phun_xam">Liệu trình dưỡng trắng da</option>
+                            <option value="phun_xam">Massage thư giãn và Detox da</option>
+                            <option value="phun_xam">Xông hơi thảo dược</option>
+                            <option value="phun_xam">Điều trị sẹo rỗ, thâm</option>
+                            <option value="phun_xam">Nâng da trẻ hóa bằng RF</option>
+                            <option value="phun_xam">Chăm sóc da sau lăn kim</option>
+                            <option value="phun_xam">Pell da hóa học</option>
+                            <option value="phun_xam">Chăm sóc da chuyên biệt cho nam</option>
+                            <option value="phun_xam">Cấy tinh chất cấp ẩm</option>
+                            <option value="phun_xam">Điều trị nám, tàn nhang</option>
+                            <option value="phun_xam">Chăm sóc da nhạy cảm</option>
+                            <option value="phun_xam">Massage trị liệu</option>
+                            <option value="phun_xam">Massage toàn thân</option>
+                            <option value="phun_xam">Gội đầu dưỡng sinh</option>
+
+
                         </select>
                     </div>
 
@@ -89,12 +125,13 @@
                         <label for="specialist" class="form-label">Chọn chuyên viên:</label>
                         <select id="specialist" class="form-select">
                             <option value="">-- Chọn chuyên viên --</option>
-                <option value="khong_chon_chuyen_vien">Không chọn trước chuyên viên</option>
-                <option value="no1">Nguyễn Thị Thu Trà</option>
-                <option value="no2">Hà Thành</option>
-                <option value="no3">Nguyễn Ngọc Như Ý</option>
-                <option value="no4">Nguyễn Hoàng Tâm Minh</option>
-                <option value="no5">Trần Thị Nguyệt Anh</option>
+                            <option value="khong_chon_chuyen_vien">Không chọn trước chuyên viên</option>
+                            <option value="nguyen_thi_mai">Đinh Thị Thu Trà</option>
+                            <option value="tran_van_phuc">Nguyễn Ngọc Như Ý</option>
+                            <option value="hoang_lan_anh">Trần Thị NGuyệt Anh</option>
+                            <option value="hoang_lan_anh">Hà Văn Thành</option>
+                            <option value="hoang_lan_anh">Nguyễn Hoàng Minh Tâm</option>
+
                         </select>
                     </div>
 
@@ -115,34 +152,35 @@
     </div>
 </section>
 
-<!-- Modal thông báo đặt lịch thành công -->
+<!-- Modal thành công -->
 <div class="modal fade" id="successModal" tabindex="-1">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content text-center">
             <div class="modal-header">
                 <h5 class="modal-title">Thông báo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body text-center">
+            <div class="modal-body">
                 <p class="text-success fw-bold">Đặt lịch thành công!</p>
             </div>
         </div>
     </div>
 </div>
 
-<footer class="kamoi-footer py-5">
+<!-- Footer -->
+<footer class=" text-center">
     <div class="container">
         <div class="row">
             <!-- Cột Giới thiệu & Mạng xã hội -->
-            <div class="col-md-4 text-center text-md-start">
-                <img src="/static/images/tab.png" alt="Logo" style="width: 100px;">
-                <h5 class="mt-3">💖 <b>KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
+            <div class="col-md-4">
+                <!--                <img src="/static/images/tab.png" alt="Logo" style="width: 90px;">-->
+                <h5><b>💖KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
                 <p>Sự kết hợp hoàn hảo giữa khoa học và thiên nhiên, mang đến giải pháp chăm sóc da an toàn và hiệu quả.</p>
                 <!-- Icon mạng xã hội -->
                 <div class="social-icons d-flex justify-content-center">
-                    <a href="#"><img src="/static/icons/facebook.png" class="social-icon"></a>
-                    <a href="#"><img src="/static/icons/instagram.png" class="social-icon"></a>
-                    <a href="#"><img src="/static/icons/tiktok.png" class="social-icon"></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/></a>
                 </div>
                 <h6 class="mt-3"><b>⏰ Thời gian làm việc</b></h6>
                 <p>09:00 - 22:00 | Thứ 2 - Chủ Nhật (Kể cả dịp lễ, Tết)</p>
@@ -153,25 +191,59 @@
                 <h5><b>📞 THÔNG TIN LIÊN HỆ</b></h5>
                 <p>📧 Email: <a href="mailto:KAMOI.skincare@gmail.com">KAMOI.skincare@gmail.com</a></p>
                 <ul class="contact-list">
-                    <li> Hotline CN1: 0123 456 789</li>
-                    <li> Hotline CN2: 0123 654 987</li>
+                    <li> Hotline: 0123 456 789</li>
                 </ul>
             </div>
 
             <!-- Cột Hệ thống chi nhánh -->
             <div class="col-md-4">
-                <h5><b>📍 HỆ THỐNG CHI NHÁNH</b></h5>
+                <h5><b>📍 ĐỊA CHỈ</b></h5>
                 <ul class="branch-list">
-                    <p>🏢 83/86, Nguyễn Thị Minh Khai, Quận 1</p>
                     <p>🏢 102, Nguyễn Gia Trí, Quận Bình Thạnh</p>
                 </ul>
+            </div>
+            <div class="text-center">
+                <p><b>&copy; 2025 KAMOI Skincare. All rights reserved.</b></p>
             </div>
         </div>
     </div>
 </footer>
 
+<!-- ✅ Script xử lý logic -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("bookingForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const address = document.getElementById("address").value.trim();
+            const service = document.getElementById("service").value;
+            const specialist = document.getElementById("specialist").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+
+            if (!name || !phone || !address || !service || !specialist || !date || !time) {
+                alert("Vui lòng nhập đầy đủ thông tin trước khi đặt lịch!");
+                return;
+            }
+
+            // Hiện modal thành công
+            const modal = new bootstrap.Modal(document.getElementById("successModal"));
+            modal.show();
+
+            // Redirect sau 2.5s
+            setTimeout(() => {
+                window.location.href = "/history";
+            }, 2500);
+        });
+    });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/static/js/datlich.js"></script>
+<script th:src="@{/static/js/datlich.js}"></script>
 
 </body>
 </html>
