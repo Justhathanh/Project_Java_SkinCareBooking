@@ -15,11 +15,15 @@ import ut.edu.project_skincarebooking.models.Role;
 import ut.edu.project_skincarebooking.models.User;
 import ut.edu.project_skincarebooking.repositories.UserRepository;
 import ut.edu.project_skincarebooking.services.interF.AuthService;
+import ut.edu.project_skincarebooking.services.interF.CustomerService;
+import ut.edu.project_skincarebooking.models.Customer;
 
 @Controller
 @RequiredArgsConstructor
 public class AuthWebController {
 
+    private final CustomerService customerService;
+    private final UserRepository userRepository;
     private final AuthService authService;
 
     // ---------- View Pages ----------
@@ -44,15 +48,9 @@ public class AuthWebController {
         return "redirect:/index";
     }
 
-    @GetMapping("/service")
-    public String service() {
-        return "service";
-    }
 
-    @GetMapping("/datlich")
-    public String datlich() {
-        return "datlich";
-    }
+
+
 
     @GetMapping("/chuyenvien")
     public String chuyenvien() {
@@ -73,8 +71,6 @@ public class AuthWebController {
     public String quiz() {
         return "quiz";
     }
-
-
 
     // ---------- Form Handling ----------
     @PostMapping("/register")
@@ -140,6 +136,10 @@ public class AuthWebController {
             User user = ((UserRepository) authService).findByUsername(username)
                     .orElseThrow(() -> new RuntimeException("User not found"));
             session.setAttribute("userRole", user.getRole().toString());
+            if (user.getRole() == Role.CUSTOMER) {
+                Customer customer = customerService.getCustomerByUser(user);
+                session.setAttribute("customerId", customer.getId());
+            }
 
             redirectAttributes.addFlashAttribute("successMessage", "Đăng nhập thành công!");
             return "redirect:/index";

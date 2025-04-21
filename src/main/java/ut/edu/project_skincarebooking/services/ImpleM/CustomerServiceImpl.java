@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ut.edu.project_skincarebooking.exceptions.CustomerNotFoundException;
 import ut.edu.project_skincarebooking.models.Customer;
+import ut.edu.project_skincarebooking.models.User;
 import ut.edu.project_skincarebooking.repositories.CustomerRepository;
 import ut.edu.project_skincarebooking.services.interF.CustomerService;
 
@@ -17,6 +18,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
+    }
+
+    @Override
+    public Customer getCustomerByUser(User user) {
+        return customerRepository.findByUser(user)
+                .orElseThrow(() -> new RuntimeException("Customer not found for user: " + user.getUsername()));
     }
 
     @Override

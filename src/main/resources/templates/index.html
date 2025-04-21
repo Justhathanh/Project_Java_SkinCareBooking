@@ -14,7 +14,9 @@
 </head>
 
 <body>
-
+<div th:if="${param.bookingSuccess}" class="alert alert-success text-center mt-3">
+    Đặt lịch thành công! Vào <a th:href="@{/datlich/history}">Lịch Sử</a> để xem chi tiết.
+</div>
 <!-- Navbar -->
 
 <nav class="navbar navbar-expand-lg shadow-sm">

@@ -1,5 +1,5 @@
 package ut.edu.project_skincarebooking.models;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ut.edu.project_skincarebooking.interfaces.IAccount;
 import jakarta.persistence.*;
@@ -18,14 +18,14 @@ public class Customer extends Person implements IAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String dateOfBirth;
 
     @Column(nullable = false)
     private int loyaltyPoints;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    @JsonManagedReference(value = "customer-appointments")  // Thay vì @JsonBackReference
+    @JsonManagedReference(value = "customer-appointments")
     private List<Appointment> appointments;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -36,6 +36,10 @@ public class Customer extends Person implements IAccount {
     @JsonManagedReference(value = "customer-feedbacks")
     private List<Feedback> feedbacks = new ArrayList<>();
 
+    // Add a one-to-one relationship with User
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Override
     public boolean login() {
@@ -46,8 +50,9 @@ public class Customer extends Person implements IAccount {
     public void logout() {
 
     }
-    @Column(nullable = false, unique = true)
-    private String phone;
+
+    @Column(nullable = true, unique = false)
+    public String phone;
 
     @Override
     public void updateProfile() {

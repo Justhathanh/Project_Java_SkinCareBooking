@@ -5,6 +5,6 @@ public enum Role {
     ADMIN,
     MANAGER,
     STAFF,
-    THERAPIST,
+    SKINTHERAPIST,
     CUSTOMER
 }
