@@ -14,9 +14,7 @@
 </head>
 
 <body>
-<div th:if="${param.bookingSuccess}" class="alert alert-success text-center mt-3">
-    Đặt lịch thành công! Vào <a th:href="@{/datlich/history}">Lịch Sử</a> để xem chi tiết.
-</div>
+
 <!-- Navbar -->
 
 <nav class="navbar navbar-expand-lg shadow-sm">
@@ -94,7 +92,6 @@
 <section id="services" class="container my-5">
     <div class="row g-4">
         <div class="col-md-4">
-            <a href="/dich-vu/cham-soc-da" class="text-decoration-none text-dark">
                 <div class="card h-100 shadow-sm">
                     <img th:src="@{/images/facial.jpg}" class="card-img-top" alt="Chăm sóc da mặt">
                     <div class="card-body">
@@ -106,7 +103,6 @@
         </div>
 
         <div class="col-md-4">
-            <a href="/dich-vu/massage-toan-than" class="text-decoration-none text-dark">
                 <div class="card h-100 shadow-sm">
                     <img th:src="@{/images/detox.jpg}" class="card-img-top" alt="Massage toàn thân">
                     <div class="card-body">
@@ -118,7 +114,6 @@
         </div>
 
         <div class="col-md-4">
-            <a href="/dich-vu/laser" class="text-decoration-none text-dark">
                 <div class="card h-100 shadow-sm">
                     <img th:src="@{/images/laser.jpg}" class="card-img-top" alt="Điều trị laser">
                     <div class="card-body">
@@ -130,7 +125,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Footer -->
 <footer class=" text-center">
@@ -167,10 +161,11 @@
                     <p>🏢 102, Nguyễn Gia Trí, Quận Bình Thạnh</p>
                 </ul>
             </div>
+            <div class="text-center">
+                <p><b>&copy; 2025 KAMOI Skincare. All rights reserved.</b></p>
+            </div>
         </div>
     </div>
-
-    <!-- Footer -->
 </footer>
 
 
