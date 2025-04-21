@@ -3,83 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>KAMOI - Dashboard & Report</title>
+
+    <!-- Bootstrap & Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="icon" type="image/png" th:href="@{/images/tab.png}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg shadow-sm">
-        <div class="container d-flex align-items-center justify-content-between">
-            <img th:src="@{/images/logo.png}" class="img-fluid" alt="Logo" style="height: 60px;">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Trang Chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/service}">Dịch Vụ</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/datlich}">Đặt Lịch</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien}">Chuyên Viên</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/history}">Lịch Sử</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/db_report}">Dashboard & Report</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container mt-5">
-        <h2 class="mb-4">Dashboard & Báo cáo Dịch Vụ BookingSpa</h2>
-        <!-- Thống kê chung -->
-        <div class="row mb-5">
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Tổng số đặt lịch</h5>
-                        <p class="card-text" th:text="${totalBookings}">100</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Số dịch vụ đã sử dụng</h5>
-                        <p class="card-text" th:text="${totalServicesUsed}">250</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Tổng doanh thu</h5>
-                        <p class="card-text" th:text="${totalRevenue}">1,500,000 VND</p>
-                    </div>
+<body style="background-color: #f4f6f9;">
+<div class="container my-5">
+    <h2 class="text-center mb-4">📊 Tổng Quan Đặt Lịch</h2>
+
+    <!-- Dashboard Cards -->
+    <div class="row text-center mb-5">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Tổng Lịch Đặt</h5>
+                    <p class="card-text fs-4 fw-bold text-primary" th:text="${totalBookings}">120</p>
+                    <i class="fas fa-calendar-check fa-2x text-primary"></i>
                 </div>
             </div>
         </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Đã Xác Nhận</h5>
+                    <p class="card-text fs-4 fw-bold text-success" th:text="${confirmedCount}">80</p>
+                    <i class="fas fa-check-circle fa-2x text-success"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Chờ Xác Nhận</h5>
+                    <p class="card-text fs-4 fw-bold text-warning" th:text="${pendingCount}">25</p>
+                    <i class="fas fa-clock fa-2x text-warning"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Đã Hủy</h5>
+                    <p class="card-text fs-4 fw-bold text-danger" th:text="${canceledCount}">15</p>
+                    <i class="fas fa-times-circle fa-2x text-danger"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Danh sách Booking -->
-        <h4 class="mb-4">Lịch sử Đặt Lịch</h4>
-        <table class="table table-bordered table-hover">
-            <thead class="table-light">
-                <tr>
-                    <th>ID</th>
-                    <th>Khách hàng</th>
-                    <th>Dịch vụ</th>
-                    <th>Ngày đặt</th>
-                    <th>Trạng thái</th>
-                </tr>
+    <!-- Report Table -->
+    <h4 class="mb-3">📋 Chi Tiết Lịch Đặt</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-light text-center">
+            <tr>
+                <th>ID</th>
+                <th>Khách Hàng</th>
+                <th>Dịch Vụ</th>
+                <th>Ngày Đặt</th>
+                <th>Trạng Thái</th>
+            </tr>
             </thead>
             <tbody>
-                <tr th:each="booking : ${bookings}">
-                    <td th:text="${booking.id}">1</td>
-                    <td th:text="${booking.customerName}">Nguyễn A</td>
-                    <td th:text="${booking.serviceName}">Chăm sóc da</td>
-                    <td th:text="${#temporals.format(booking.bookingDate, 'dd/MM/yyyy HH:mm')}">01/01/2025</td>
-                    <td th:text="${booking.status}" th:class="'status-' + ${booking.status}">confirmed</td>
-                </tr>
+            <tr th:each="booking : ${bookings}" class="text-center">
+                <td th:text="${booking.id}">1</td>
+                <td th:text="${booking.customerName}">Nguyễn Văn A</td>
+                <td th:text="${booking.serviceName}">Facial Treatment</td>
+                <td th:text="${#temporals.format(booking.bookingDate, 'dd/MM/yyyy HH:mm')}">01/01/2025 10:00</td>
+                <td th:text="${booking.status}"
+                    th:class="'fw-bold text-white rounded p-1 ' +
+                                      (${booking.status} == 'confirmed' ? 'bg-success' :
+                                       ${booking.status} == 'pending' ? 'bg-warning' : 'bg-danger')">
+                    confirmed
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
