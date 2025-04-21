@@ -1,0 +1,119 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+h2, h4 {
+    color: #333;
+    font-weight: bold;
+}
+
+h5 {
+    color: #555;
+    font-weight: normal;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #007bff;
+    padding: 10px 0;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: white !important;
+    font-size: 16px;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #ff9800 !important;
+}
+
+.navbar img {
+    height: 60px;
+}
+
+/* Card Style for Dashboard stats */
+.card {
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.card-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+table td {
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #ddd;
+}
+
+table td.status-confirmed {
+    background-color: #4caf50;
+    color: white;
+}
+
+table td.status-pending {
+    background-color: #ff9800;
+    color: white;
+}
+
+table td.status-canceled {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Container Styling */
+.container {
+    margin-top: 50px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .navbar .navbar-nav {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
