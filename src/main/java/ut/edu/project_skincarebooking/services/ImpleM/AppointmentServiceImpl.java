@@ -66,7 +66,13 @@ public class AppointmentServiceImpl implements AppointmentService {
                 appointment.getTherapist().getId(),
                 appointment.getService().getId());
 
-        return appointmentRepository.save(appointment);
+        try {
+            return appointmentRepository.save(appointment);
+        } catch (Exception e) {
+            logger.error("❌ Lỗi khi lưu appointment: {}", e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     @Override

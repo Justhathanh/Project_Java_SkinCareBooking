@@ -11,12 +11,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ut.edu.project_skincarebooking.dto.AuthDTO.AuthenticationRequest;
 import ut.edu.project_skincarebooking.dto.AuthDTO.AuthenticationResponse;
 import ut.edu.project_skincarebooking.dto.AuthDTO.RegisterRequest;
+import ut.edu.project_skincarebooking.models.Customer;
 import ut.edu.project_skincarebooking.models.Role;
 import ut.edu.project_skincarebooking.models.User;
 import ut.edu.project_skincarebooking.repositories.UserRepository;
 import ut.edu.project_skincarebooking.services.interF.AuthService;
 import ut.edu.project_skincarebooking.services.interF.CustomerService;
-import ut.edu.project_skincarebooking.models.Customer;
 
 @Controller
 @RequiredArgsConstructor
@@ -42,15 +42,10 @@ public class AuthWebController {
         return "index";
     }
 
-    // Redirect from root to index
     @GetMapping("/")
     public String root() {
         return "redirect:/index";
     }
-
-
-
-
 
     @GetMapping("/chuyenvien")
     public String chuyenvien() {
@@ -72,7 +67,7 @@ public class AuthWebController {
         return "quiz";
     }
 
-    // ---------- Form Handling ----------
+    // ---------- Đăng ký ----------
     @PostMapping("/register")
     public String registerUser(
             @RequestParam String username,
@@ -90,7 +85,7 @@ public class AuthWebController {
 
             AuthenticationResponse authResponse = authService.register(request);
 
-            // Store token in both cookie and session for flexibility
+            // ✅ Gán token vào cookie & session
             Cookie jwtCookie = new Cookie("token", authResponse.getToken());
             jwtCookie.setHttpOnly(true);
             jwtCookie.setPath("/");
@@ -100,15 +95,36 @@ public class AuthWebController {
             session.setAttribute("token", authResponse.getToken());
             session.setAttribute("username", username);
 
+            // ✅ Gán customerId vào session (nếu role là CUSTOMER)
+            User user = userRepository.findByUsername(username)
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+            session.setAttribute("userRole", user.getRole().toString());
+
+            if (user.getRole() == Role.CUSTOMER) {
+                Customer customer;
+                try {
+                    customer = customerService.getCustomerByUser(user);
+                } catch (Exception e) {
+                    customer = new Customer();
+                    customer.setUser(user);
+                    customer = customerService.saveCustomer(customer);
+                }
+                session.setAttribute("customerId", customer.getId());
+                System.out.println("✅ Gán session: customerId = " + customer.getId());
+            }
+
             redirectAttributes.addFlashAttribute("successMessage", "Đăng ký thành công!");
             return "redirect:/index";
+
         } catch (Exception e) {
-            e.printStackTrace(); // In lỗi chi tiết vào console để debug
+            e.printStackTrace(); // Debug lỗi chi tiết
             model.addAttribute("error", "Đăng ký thất bại: " + e.getMessage());
             return "register";
         }
     }
 
+
+    // ---------- Đăng nhập ----------
     @PostMapping("/login")
     public String loginUser(
             @RequestParam String username,
@@ -117,12 +133,13 @@ public class AuthWebController {
             HttpSession session,
             RedirectAttributes redirectAttributes,
             Model model) {
+        System.out.println("🚀 ĐÃ GỌI VÀO CONTROLLER /login");
 
         try {
             AuthenticationRequest request = new AuthenticationRequest(username, password);
             AuthenticationResponse authResponse = authService.authenticate(request);
 
-            // Store token in both cookie and session for flexibility
+            // Lưu token và session
             Cookie jwtCookie = new Cookie("token", authResponse.getToken());
             jwtCookie.setHttpOnly(true);
             jwtCookie.setPath("/");
@@ -132,17 +149,32 @@ public class AuthWebController {
             session.setAttribute("token", authResponse.getToken());
             session.setAttribute("username", username);
 
-            // Add this line to store user role in session
-            User user = ((UserRepository) authService).findByUsername(username)
+            // Lấy User
+            User user = userRepository.findByUsername(username)
                     .orElseThrow(() -> new RuntimeException("User not found"));
+
             session.setAttribute("userRole", user.getRole().toString());
+
+            // 👉 Gán customerId (nếu chưa có thì tạo)
             if (user.getRole() == Role.CUSTOMER) {
-                Customer customer = customerService.getCustomerByUser(user);
+                Customer customer;
+                try {
+                    customer = customerService.getCustomerByUser(user);
+                } catch (Exception e) {
+                    // Nếu chưa có, thì tạo mới
+                    customer = new Customer();
+                    customer.setUser(user);
+                    customer = customerService.saveCustomer(customer);
+                    System.out.println("🆕 Tạo mới customer cho user: " + username);
+                }
+
                 session.setAttribute("customerId", customer.getId());
+                System.out.println("✅ Gán session: customerId = " + customer.getId());
             }
 
             redirectAttributes.addFlashAttribute("successMessage", "Đăng nhập thành công!");
             return "redirect:/index";
+
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", "Đăng nhập thất bại: " + e.getMessage());
@@ -152,16 +184,12 @@ public class AuthWebController {
 
     @GetMapping("/logout")
     public String logout(HttpServletResponse response, HttpSession session) {
-        // Xóa cookie
         Cookie jwtCookie = new Cookie("token", null);
         jwtCookie.setHttpOnly(true);
         jwtCookie.setPath("/");
         jwtCookie.setMaxAge(0);
         response.addCookie(jwtCookie);
 
-        // Xóa session
-        session.removeAttribute("token");
-        session.removeAttribute("username");
         session.invalidate();
 
         return "redirect:/login";

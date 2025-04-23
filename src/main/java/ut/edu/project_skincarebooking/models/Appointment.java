@@ -21,11 +21,13 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @ManyToOne
     @JoinColumn(name = "customer_id")
     @JsonBackReference(value = "customer-appointments")
     private Customer customer;
+
+    @Column(name = "customer_name")
+    private String customerName; // ✅ Thêm dòng này
 
     @Column(nullable = false)
     private LocalDate date;
@@ -38,7 +40,7 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "therapist_id")
-    @JsonBackReference(value = "therapist-appointments")  // Thay vì @JsonManagedReference
+    @JsonBackReference(value = "therapist-appointments")
     private SkinTherapist therapist;
 
     @ManyToOne

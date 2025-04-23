@@ -27,6 +27,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    @Override
     public Customer getCustomerById(Long id) {
         return customerRepository.findById(id)
                 .orElseThrow(() -> new CustomerNotFoundException("Customer not found with ID: " + id));

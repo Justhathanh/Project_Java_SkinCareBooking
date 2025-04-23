@@ -41,25 +41,19 @@ public class SecurityConfig {
 
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint((request, response, authException) -> {
-                            // Redirect to login page for web requests
                             if (request.getHeader("Accept") != null &&
                                     request.getHeader("Accept").contains("text/html")) {
                                 response.sendRedirect("/login");
                             } else {
-                                // Return 401 for API requests
                                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
                             }
                         })
                 )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .formLogin(form -> form
-                        .loginPage("/login")                 // Trang giao diện login
-                        .loginProcessingUrl("/login")        // Xử lý POST từ form
-                        .defaultSuccessUrl("/index", true)   // Sau khi login thành công
-                        .failureUrl("/login?error=true")     // Khi login thất bại
 
-                        .permitAll()
-                )
+                // ✅ KHÔNG dùng formLogin của Spring nữa
+                // → để bạn tự xử lý ở controller /login
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login")

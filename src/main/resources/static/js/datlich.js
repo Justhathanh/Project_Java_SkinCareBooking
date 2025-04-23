@@ -1,57 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const serviceSelect = document.getElementById("service");
-    const specialistSelect = document.getElementById("specialist");
     const bookingForm = document.getElementById("bookingForm");
 
-    // Danh sách dịch vụ tại KAMOI Spa
-    const services = [
-        "Chăm sóc da mặt ", "Massage toàn thân", "Massage trị liệu", "Điều trị laser",
-         "Giảm béo", "Gội đầu dưỡng sinh",
-        "Nâng cơ trẻ hóa", "Cấy collagen", "Trị nám tàn nhang"
-    ];
-
-    // Danh sách chuyên viên tại KAMOI Spa
-    const specialists = [
-        "Không chọn trước chuyên viên","Đinh Thị Thu Trà", "Nguyễn Ngọc Như Ý", "Trần Thị Nguyệt Anh",
-        "Hà Thành", "Nguyễn Hoàng Tâm Minh"
-    ];
-
-    // Cập nhật danh sách dịch vụ
-    function populateSelect(selectElement, items, defaultText) {
-        selectElement.innerHTML = '';
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.textContent = defaultText;
-        selectElement.appendChild(defaultOption);
-
-        items.forEach(item => {
-            let option = document.createElement("option");
-            option.value = item;
-            option.textContent = item;
-            selectElement.appendChild(option);
-        });
-    }
-
-    // Hiển thị dịch vụ và chuyên viên khi trang tải xong
-    populateSelect(serviceSelect, services, "-- Chọn dịch vụ --");
-    populateSelect(specialistSelect, specialists, "-- Chọn chuyên viên --");
-
-    // Xử lý đặt lịch
     bookingForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+        event.preventDefault(); // vẫn giữ để kiểm tra dữ liệu
 
-        // Hiển thị modal Bootstrap
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const service = document.getElementById("service").value;
+        const specialist = document.getElementById("specialist").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+
+        if (!name || !phone || !address || !service || !specialist || !date || !time) {
+            alert("Vui lòng nhập đầy đủ thông tin trước khi đặt lịch!");
+            return;
+        }
+
+        // Hiển thị modal thành công
         const successModal = new bootstrap.Modal(document.getElementById("successModal"));
         successModal.show();
 
-        // Xóa nội dung form
-        bookingForm.reset();
+        // Gửi form về controller sau khi hiện modal 2.5 giây
+        setTimeout(() => {
+            bookingForm.submit();
+        }, 2500);
     });
 
     console.log("✅ File datlich.js đã được tải thành công!");
 });
-
-modal.show();
-setTimeout(() => {
-    document.getElementById("bookingForm").submit();
-}, 1500); // chờ 1.5s rồi submit

@@ -76,46 +76,46 @@
         <div class="col-md-6">
             <div class="card shadow p-4">
                 <h2 class="text-center text-pink">Thông tin khách hàng</h2>
-                <form id="bookingForm">
+                <form id="bookingForm" th:action="@{/datlich/create}" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label">Họ và Tên:</label>
-                        <input type="text" id="name" class="form-control" required>
+                        <input name="name" id="name" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="phone" class="form-label">Số điện thoại:</label>
-                        <input type="tel" id="phone" class="form-control" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại (10-11 số)">
+                        <input name="phone" id="phone" class="form-control" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại (10-11 số)">
                     </div>
 
                     <div class="mb-3">
                         <label for="address" class="form-label">Địa chỉ:</label>
-                        <input type="text" id="address" class="form-control" required>
+                        <input name="address" id="address" class="form-control" required>
                     </div>
 
                     <h2 class="text-center text-pink">Chọn thông tin đặt lịch</h2>
 
                     <div class="mb-3">
                         <label for="service" class="form-label">Chọn dịch vụ:</label>
-                        <select id="service" class="form-select">
+                        <select name="service" id="service" class="form-select">
                             <option value="">-- Chọn dịch vụ --</option>
-                            <option value="tam_trang">Chăm sóc da mặt cơ bản</option>
-                            <option value="tri_mun">Trị mụn chuyên sâu</option>
-                            <option value="mat_xa">Liệu pháp tái tạo bằng laser</option>
-                            <option value="meso">Trẻ hóa da bằng công nghệ cao</option>
-                            <option value="phun_xam">Liệu trình dưỡng trắng da</option>
-                            <option value="phun_xam">Massage thư giãn và Detox da</option>
-                            <option value="phun_xam">Xông hơi thảo dược</option>
-                            <option value="phun_xam">Điều trị sẹo rỗ, thâm</option>
-                            <option value="phun_xam">Nâng da trẻ hóa bằng RF</option>
-                            <option value="phun_xam">Chăm sóc da sau lăn kim</option>
-                            <option value="phun_xam">Pell da hóa học</option>
-                            <option value="phun_xam">Chăm sóc da chuyên biệt cho nam</option>
-                            <option value="phun_xam">Cấy tinh chất cấp ẩm</option>
-                            <option value="phun_xam">Điều trị nám, tàn nhang</option>
-                            <option value="phun_xam">Chăm sóc da nhạy cảm</option>
-                            <option value="phun_xam">Massage trị liệu</option>
-                            <option value="phun_xam">Massage toàn thân</option>
-                            <option value="phun_xam">Gội đầu dưỡng sinh</option>
+                            <option value="4">Chăm sóc da mặt cơ bản</option>
+                            <option value="5">Trị mụn chuyên sâu</option>
+                            <option value="6">Liệu pháp tái tạo bằng laser</option>
+                            <option value="7">Trẻ hóa da bằng công nghệ cao</option>
+                            <option value="8">Liệu trình dưỡng trắng da</option>
+                            <option value="9">Massage thư giãn và Detox da</option>
+                            <option value="10">Xông hơi thảo dược</option>
+                            <option value="11">Điều trị sẹo rỗ, thâm</option>
+                            <option value="12">Nâng da trẻ hóa bằng RF</option>
+                            <option value="13">Chăm sóc da sau lăn kim</option>
+                            <option value="14">Pell da hóa học</option>
+                            <option value="15">Chăm sóc da chuyên biệt cho nam</option>
+                            <option value="16">Cấy tinh chất cấp ẩm</option>
+                            <option value="17">Điều trị nám, tàn nhang</option>
+                            <option value="18">Chăm sóc da nhạy cảm</option>
+                            <option value="19">Massage trị liệu</option>
+                            <option value="20">Massage toàn thân</option>
+                            <option value="21">Gội đầu dưỡng sinh</option>
 
 
                         </select>
@@ -123,26 +123,26 @@
 
                     <div class="mb-3">
                         <label for="specialist" class="form-label">Chọn chuyên viên:</label>
-                        <select id="specialist" class="form-select">
+                        <select name="specialist" id="specialist" class="form-select">
                             <option value="">-- Chọn chuyên viên --</option>
                             <option value="khong_chon_chuyen_vien">Không chọn trước chuyên viên</option>
-                            <option value="nguyen_thi_mai">Đinh Thị Thu Trà</option>
-                            <option value="tran_van_phuc">Nguyễn Ngọc Như Ý</option>
-                            <option value="hoang_lan_anh">Trần Thị NGuyệt Anh</option>
-                            <option value="hoang_lan_anh">Hà Văn Thành</option>
-                            <option value="hoang_lan_anh">Nguyễn Hoàng Minh Tâm</option>
+                            <option value="1">Đinh Thị Thu Trà</option>
+                            <option value="3">Nguyễn Ngọc Như Ý</option>
+                            <option value="5">Trần Thị NGuyệt Anh</option>
+                            <option value="2">Hà Văn Thành</option>
+                            <option value="4">Nguyễn Hoàng Minh Tâm</option>
 
                         </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="date" class="form-label">Chọn ngày:</label>
-                        <input type="date" id="date" class="form-control" required>
+                        <input name="date" type="date" id="date" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="time" class="form-label">Chọn giờ:</label>
-                        <input type="time" id="time" class="form-control" required>
+                        <input name="time" type="time" id="time" class="form-control" required>
                     </div>
 
                     <button type="submit" class="btn btn-pink w-100">Xác nhận đặt lịch</button>
@@ -243,7 +243,7 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script th:src="@{/static/js/datlich.js}"></script>
+<script th:src="@{/js/datlich.js}"></script>
 
 </body>
 </html>
