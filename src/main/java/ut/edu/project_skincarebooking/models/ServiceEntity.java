@@ -26,7 +26,7 @@ public class ServiceEntity {
     private String description;
 
     @Column(nullable = false)
-    private double price;
+    private Double price;
 
     @Column(nullable = false)
     private int duration; // Tính bằng phút
@@ -39,9 +39,7 @@ public class ServiceEntity {
     )
     private List<SkinTherapist> therapists;
 
-    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "service-appointments")
-    private List<Appointment> appointments;
+
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "service-feedbacks")

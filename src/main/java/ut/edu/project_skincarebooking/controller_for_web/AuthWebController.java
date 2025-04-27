@@ -52,10 +52,6 @@ public class AuthWebController {
         return "chuyenvien";
     }
 
-    @GetMapping("/history")
-    public String history() {
-        return "history";
-    }
 
     @GetMapping("/db_report")
     public String dbReport() {

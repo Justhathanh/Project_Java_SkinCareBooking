@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanh toán</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container d-flex align-items-center justify-content-between">
+        <img th:src="@{/images/logoKAMOI.png}" class="img-fluid" alt="Logo" style="height: 60px;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <div class="hotline">
+                <i class="fa-solid fa-phone-volume"></i>
+                <span class="text-pink">Hotline: 0909 123 456</span>
+            </div>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/index}">Trang Chủ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/service}">Dịch Vụ</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/datlich}">Đặt Lịch</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien}">Chuyên Viên</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/history}">Lịch Sử</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/db_report}">Dashboard & Report</a></li>
+
+                <li th:if="${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-circle me-1"></i>
+                        <span th:text="${#authentication.name}">Tên người dùng</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" th:href="@{/profile}">Hồ sơ</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a></li>
+                    </ul>
+                </li>
+
+                <li th:if="${#authorization.expression('!isAuthenticated()')}" class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Đăng nhập</a>
+                </li>
+                <li th:if="${#authorization.expression('!isAuthenticated()')}" class="nav-item">
+                    <a class="nav-link" th:href="@{/register}">Đăng ký</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+
+    <!-- Nếu chưa thanh toán -->
+    <div th:if="${!isPaid}">
+        <h2 class="mb-4">Xác nhận thanh toán</h2>
+
+        <div class="card p-4 shadow mb-4">
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <th>Người thanh toán</th>
+                    <td th:text="${appointment.customer.name}">Tên khách hàng</td>
+                </tr>
+                <tr>
+                    <th>Dịch vụ</th>
+                    <td>
+                        <ul class="list-unstyled mb-0" th:each="s : ${appointment.services}">
+                            <li th:text="${s.description}">Tên dịch vụ</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Chuyên viên</th>
+                    <td th:text="${appointment.therapist != null ? appointment.therapist.name : 'Chưa chọn chuyên viên'}">Tên chuyên viên</td>
+                </tr>
+                <tr>
+                    <th>Số tiền</th>
+                    <td th:text="${totalAmount}">0</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <form th:action="@{/payment/confirm}" method="post" class="card p-4 shadow">
+            <input type="hidden" name="appointmentId" th:value="${appointment.id}" />
+
+            <div class="mb-3">
+                <label for="method" class="form-label">Phương thức thanh toán:</label>
+                <select class="form-select" id="method" name="paymentMethod" required>
+                    <option value="" disabled selected>Chọn phương thức</option>
+                    <option value="Cash">Tiền mặt</option>
+                    <option value="CreditCard">Thẻ tín dụng</option>
+                    <option value="Momo">Ví Momo</option>
+                </select>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a href="/history" class="btn btn-secondary">Quay lại lịch sử</a>
+                <button type="submit" class="btn btn-success">Xác nhận thanh toán</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Nếu đã thanh toán -->
+    <div th:if="${isPaid}">
+        <h2 class="mb-4">Chi tiết hóa đơn thanh toán</h2>
+
+        <div class="card p-4 shadow mb-4">
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <th>Người thanh toán</th>
+                    <td th:text="${appointment.customer.name}">Tên khách hàng</td>
+                </tr>
+                <tr>
+                    <th>Dịch vụ</th>
+                    <td>
+                        <ul class="list-unstyled mb-0" th:each="s : ${appointment.services}">
+                            <li th:text="${s.description}">Tên dịch vụ</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Chuyên viên</th>
+                    <td th:text="${appointment.therapist != null ? appointment.therapist.name : 'Chưa chọn chuyên viên'}">Tên chuyên viên</td>
+                </tr>
+                <tr>
+                    <th>Số tiền</th>
+                    <td th:text="${totalAmount}">0</td>
+                </tr>
+                <tr>
+                    <th>Phương thức thanh toán</th>
+                    <td th:text="${payment.paymentMethod}">Cash</td>
+                </tr>
+                <tr>
+                    <th>Ngày thanh toán</th>
+                    <td th:text="${#dates.format(payment.paymentDate, 'dd/MM/yyyy HH:mm')}">01/01/2025</td>
+                </tr>
+                <tr>
+                    <th>Trạng thái</th>
+                    <td class="text-success fw-bold">Đã thanh toán</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <a href="/history" class="btn btn-secondary">Quay lại lịch sử</a>
+
+            <div th:if="${appointment.feedback == null}">
+                <a th:href="@{'/feedback?appointmentId=' + ${appointment.id}}" class="btn btn-success">📝 Gửi đánh giá</a>
+            </div>
+
+            <div th:if="${appointment.feedback != null}">
+                <a th:href="@{'/feedback?appointmentId=' + ${appointment.id}}" class="btn btn-warning">✏️ Sửa đánh giá</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

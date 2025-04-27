@@ -1,6 +1,8 @@
 package ut.edu.project_skincarebooking.services.interF;
+
 import ut.edu.project_skincarebooking.models.Appointment;
-import java.util.*;
+import ut.edu.project_skincarebooking.models.ServiceEntity;
+import java.util.List;
 
 public interface AppointmentService {
     List<Appointment> getAllAppointments();
@@ -8,4 +10,8 @@ public interface AppointmentService {
     Appointment addAppointment(Appointment appointment);
     Appointment updateAppointment(Long id, Appointment appointment);
     void deleteAppointment(Long id);
+    List<Appointment> getAppointmentsByService(ServiceEntity service);
+    List<Appointment> findAppointmentsByCustomerId(Long customerId);
+
+    Appointment getAppointmentWithServices(Long id); // ✅ Thêm
 }

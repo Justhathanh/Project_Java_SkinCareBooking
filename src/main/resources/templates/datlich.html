@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <title>Đặt lịch</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <link rel="stylesheet" th:href="@{/css/datlich_cvien.css}">
     <link rel="icon" type="image/png" th:href="@{/images/tab.png}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
-
 </head>
-
-
 <body>
 
 <!-- Navbar -->
@@ -30,8 +26,8 @@
                 <li class="nav-item"><a class="nav-link" th:href="@{/chuyenvien}">Chuyên Viên</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/history}">Lịch Sử</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/db_report}">Dashboard & Report</a></li>
-                <!-- Phần hiển thị người dùng đăng nhập -->
-                <!-- Người dùng đã đăng nhập -->
+
+                <!-- Hiển thị nếu đã đăng nhập -->
                 <li th:if="${#authorization.expression('isAuthenticated()')}" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
                         <i class="fas fa-user-circle me-1"></i>
@@ -43,7 +39,7 @@
                         <li><a class="dropdown-item" th:href="@{/logout}">Đăng xuất</a></li>
                     </ul>
                 </li>
-                <!-- Người dùng chưa đăng nhập -->
+                <!-- Hiển thị nếu chưa đăng nhập -->
                 <li th:if="${#authorization.expression('!isAuthenticated()')}" class="nav-item">
                     <a class="nav-link" th:href="@{/login}">Đăng nhập</a>
                 </li>
@@ -51,21 +47,9 @@
                     <a class="nav-link" th:href="@{/register}">Đăng ký</a>
                 </li>
             </ul>
-
         </div>
     </div>
 </nav>
-<div th:if="${successMessage}" class="container mt-3">
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <span th:text="${successMessage}"></span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-</div>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 
 <header class="text-center py-4">
     <h1 class="text-pink">Đặt lịch tại KAMOI Spa</h1>
@@ -81,23 +65,17 @@
                         <label for="name" class="form-label">Họ và Tên:</label>
                         <input name="name" id="name" class="form-control" required>
                     </div>
-
                     <div class="mb-3">
                         <label for="phone" class="form-label">Số điện thoại:</label>
                         <input name="phone" id="phone" class="form-control" required pattern="[0-9]{10,11}" placeholder="Nhập số điện thoại (10-11 số)">
                     </div>
-
                     <div class="mb-3">
                         <label for="address" class="form-label">Địa chỉ:</label>
-                        <input name="address" id="address" class="form-control" required>
+                        <input name="address" id="address" class="form-control" required placeholder="Nhập địa chỉ của bạn">
                     </div>
-
-                    <h2 class="text-center text-pink">Chọn thông tin đặt lịch</h2>
-
                     <div class="mb-3">
-                        <label for="service" class="form-label">Chọn dịch vụ:</label>
-                        <select name="service" id="service" class="form-select">
-                            <option value="">-- Chọn dịch vụ --</option>
+                        <label for="services" class="form-label">Chọn dịch vụ:</label>
+                        <select name="services" id="services" class="form-select" multiple required>
                             <option value="4">Chăm sóc da mặt cơ bản</option>
                             <option value="5">Trị mụn chuyên sâu</option>
                             <option value="6">Liệu pháp tái tạo bằng laser</option>
@@ -116,11 +94,9 @@
                             <option value="19">Massage trị liệu</option>
                             <option value="20">Massage toàn thân</option>
                             <option value="21">Gội đầu dưỡng sinh</option>
-
-
                         </select>
+                        <small class="text-muted">(Chọn 1 hoặc nhiều dịch vụ)</small>
                     </div>
-
                     <div class="mb-3">
                         <label for="specialist" class="form-label">Chọn chuyên viên:</label>
                         <select name="specialist" id="specialist" class="form-select">
@@ -128,18 +104,15 @@
                             <option value="khong_chon_chuyen_vien">Không chọn trước chuyên viên</option>
                             <option value="1">Đinh Thị Thu Trà</option>
                             <option value="3">Nguyễn Ngọc Như Ý</option>
-                            <option value="5">Trần Thị NGuyệt Anh</option>
+                            <option value="5">Trần Thị Nguyệt Anh</option>
                             <option value="2">Hà Văn Thành</option>
                             <option value="4">Nguyễn Hoàng Minh Tâm</option>
-
                         </select>
                     </div>
-
                     <div class="mb-3">
                         <label for="date" class="form-label">Chọn ngày:</label>
                         <input name="date" type="date" id="date" class="form-control" required>
                     </div>
-
                     <div class="mb-3">
                         <label for="time" class="form-label">Chọn giờ:</label>
                         <input name="time" type="time" id="time" class="form-control" required>
@@ -168,15 +141,12 @@
 </div>
 
 <!-- Footer -->
-<footer class=" text-center">
+<footer class="text-center">
     <div class="container">
         <div class="row">
-            <!-- Cột Giới thiệu & Mạng xã hội -->
             <div class="col-md-4">
-                <!--                <img src="/static/images/tab.png" alt="Logo" style="width: 90px;">-->
-                <h5><b>💖KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
+                <h5><b>💖 KAMOI Skincare - Chăm Da Toàn Diện</b></h5>
                 <p>Sự kết hợp hoàn hảo giữa khoa học và thiên nhiên, mang đến giải pháp chăm sóc da an toàn và hiệu quả.</p>
-                <!-- Icon mạng xã hội -->
                 <div class="social-icons d-flex justify-content-center">
                     <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/></a>
                     <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
@@ -185,64 +155,30 @@
                 <h6 class="mt-3"><b>⏰ Thời gian làm việc</b></h6>
                 <p>09:00 - 22:00 | Thứ 2 - Chủ Nhật (Kể cả dịp lễ, Tết)</p>
             </div>
-
-            <!-- Cột Thông tin liên hệ -->
             <div class="col-md-4">
                 <h5><b>📞 THÔNG TIN LIÊN HỆ</b></h5>
                 <p>📧 Email: <a href="mailto:KAMOI.skincare@gmail.com">KAMOI.skincare@gmail.com</a></p>
                 <ul class="contact-list">
-                    <li> Hotline: 0123 456 789</li>
+                    <li>Hotline: 0123 456 789</li>
                 </ul>
             </div>
-
-            <!-- Cột Hệ thống chi nhánh -->
             <div class="col-md-4">
                 <h5><b>📍 ĐỊA CHỈ</b></h5>
                 <ul class="branch-list">
                     <p>🏢 102, Nguyễn Gia Trí, Quận Bình Thạnh</p>
                 </ul>
             </div>
-            <div class="text-center">
-                <p><b>&copy; 2025 KAMOI Skincare. All rights reserved.</b></p>
-            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p><b>&copy; 2025 KAMOI Skincare. All rights reserved.</b></p>
         </div>
     </div>
 </footer>
 
-<!-- ✅ Script xử lý logic -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("bookingForm");
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const address = document.getElementById("address").value.trim();
-            const service = document.getElementById("service").value;
-            const specialist = document.getElementById("specialist").value;
-            const date = document.getElementById("date").value;
-            const time = document.getElementById("time").value;
-
-            if (!name || !phone || !address || !service || !specialist || !date || !time) {
-                alert("Vui lòng nhập đầy đủ thông tin trước khi đặt lịch!");
-                return;
-            }
-
-            // Hiện modal thành công
-            const modal = new bootstrap.Modal(document.getElementById("successModal"));
-            modal.show();
-
-            // Redirect sau 2.5s
-            setTimeout(() => {
-                window.location.href = "/history";
-            }, 2500);
-        });
-    });
-</script>
-
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script th:src="@{/js/datlich.js}"></script>
 
 </body>

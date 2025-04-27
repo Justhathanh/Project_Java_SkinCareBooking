@@ -1,20 +1,19 @@
 package ut.edu.project_skincarebooking.services.ImpleM;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ut.edu.project_skincarebooking.models.Appointment;
 import ut.edu.project_skincarebooking.models.Feedback;
-import ut.edu.project_skincarebooking.repositories.AppointmentRepository;
 import ut.edu.project_skincarebooking.repositories.FeedbackRepository;
 import ut.edu.project_skincarebooking.services.interF.FeedbackService;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class FeedbackServiceImpl implements FeedbackService {
 
     private final FeedbackRepository feedbackRepository;
-    private final AppointmentRepository appointmentRepository;  // Thêm repository cho Appointment
 
     @Override
     public List<Feedback> getAllFeedbacks() {
@@ -23,9 +22,9 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public Feedback getFeedbackById(Long id) {
-        return feedbackRepository.findById(id).orElseThrow(() -> new RuntimeException("Feedback not found"));
+        return feedbackRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Feedback not found"));
     }
-
 
     @Override
     public Feedback createFeedback(Feedback feedback) {
@@ -44,5 +43,10 @@ public class FeedbackServiceImpl implements FeedbackService {
     @Override
     public void deleteFeedback(Long id) {
         feedbackRepository.deleteById(id);
+    }
+
+    @Override
+    public Feedback getFeedbackByAppointmentId(Long appointmentId) {
+        return feedbackRepository.findByAppointmentId(appointmentId).orElse(null);
     }
 }

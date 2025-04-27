@@ -8,6 +8,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.*;
 
 @Entity
 @Table(name = "appointments")
@@ -43,18 +44,19 @@ public class Appointment {
     @JsonBackReference(value = "therapist-appointments")
     private SkinTherapist therapist;
 
-    @ManyToOne
-    @JoinColumn(name = "service_id", nullable = false)
-    @JsonBackReference(value = "service-appointments")
-    private ServiceEntity service;
+    @ManyToMany
+    @JoinTable(
+            name = "appointment_services",
+            joinColumns = @JoinColumn(name = "appointment_id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id")
+    )
+    private List<ServiceEntity> services = new ArrayList<>();
 
     @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "appointment-feedback")
     private Feedback feedback;
 
-    @OneToOne(mappedBy = "appointment", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("appointment")
-    private Rating rating;
+
 
     // Logic hủy cuộc hẹn
     public void cancelAppointment() {

@@ -32,7 +32,8 @@ public class AppointmentWebController {
     @PostMapping("/create")
     public String createAppointment(@RequestParam("name") String name,
                                     @RequestParam("phone") String phone,
-                                    @RequestParam("service") Long serviceId,
+                                    @RequestParam("address") String address,
+                                    @RequestParam("services") List<Long> serviceIds,
                                     @RequestParam("specialist") String specialistCode,
                                     @RequestParam("date") String dateStr,
                                     @RequestParam("time") String timeStr,
@@ -52,15 +53,23 @@ public class AppointmentWebController {
             return "redirect:/login";
         }
 
-// ✅ Cập nhật tên nếu thiếu
         if (customer.getName() == null || customer.getName().isEmpty()) {
             customer.setName(name);
             customerService.saveCustomer(customer);
         }
 
-        // Lấy dịch vụ
-        ServiceEntity selectedService = serviceService.getServiceById(serviceId);
-        if (selectedService == null) return "redirect:/datlich";
+        // Lấy danh sách dịch vụ
+        List<ServiceEntity> selectedServices = new ArrayList<>();
+        for (Long serviceId : serviceIds) {
+            ServiceEntity service = serviceService.getServiceById(serviceId);
+            if (service != null) {
+                selectedServices.add(service);
+            }
+        }
+
+        if (selectedServices.isEmpty()) {
+            return "redirect:/datlich"; // Không có dịch vụ nào hợp lệ
+        }
 
         // Lấy chuyên viên
         SkinTherapist therapist;
@@ -72,44 +81,46 @@ public class AppointmentWebController {
             therapist = therapistService.getTherapistById(therapistId);
         }
 
-        // Chuẩn hóa thời gian: hh:mm -> hh:mm:00
+        // Chuẩn hóa thời gian
         if (timeStr.length() == 5) {
             timeStr += ":00";
         }
 
         // Tạo lịch hẹn
         Appointment appointment = new Appointment();
-        appointment.setCustomerName(name); // hiển thị riêng nếu cần
+        appointment.setCustomerName(name);
         appointment.setCustomer(customer);
-        appointment.setService(selectedService);
         appointment.setTherapist(therapist);
         appointment.setDate(LocalDate.parse(dateStr));
         appointment.setTime(LocalTime.parse(timeStr));
         appointment.setStatus("Unpaid");
+        appointment.setServices(selectedServices); // 🔥 lưu danh sách dịch vụ
 
         System.out.println("🚀 Gọi addAppointment()");
         appointmentService.addAppointment(appointment);
         System.out.println("✅ Gọi xong addAppointment()");
+        System.out.println("🟢 [DEBUG] Bắt đầu xử lý tạo appointment");
+        System.out.println("Tên: " + name);
+        System.out.println("SĐT: " + phone);
+        System.out.println("Địa chỉ: " + address);
+        System.out.println("Chuyên viên: " + specialistCode);
+        System.out.println("Ngày: " + dateStr);
+        System.out.println("Giờ: " + timeStr);
+        System.out.println("Dịch vụ (IDs): " + serviceIds);
 
-        return "redirect:/datlich/history";
+        Object customerIdObj = session.getAttribute("customerId");
+        if (customerIdObj == null) {
+            System.out.println("❌ [LỖI] Chưa đăng nhập (customerId null)");
+            return "redirect:/login";
+        }
+
+
+
+        return "redirect:/history";
     }
 
     // Hiển thị lịch sử đặt lịch
-    @GetMapping("/history")
-    public String getAppointmentHistory(HttpSession session, Model model) {
-        Long customerId = (Long) session.getAttribute("customerId");
-        if (customerId == null) return "redirect:/login";
 
-        List<Appointment> customerAppointments = new ArrayList<>();
-        for (Appointment a : appointmentService.getAllAppointments()) {
-            if (a.getCustomer() != null && a.getCustomer().getId().equals(customerId)) {
-                customerAppointments.add(a);
-            }
-        }
-
-        model.addAttribute("appointments", customerAppointments);
-        return "history";
-    }
 
     // Đánh dấu đã thanh toán
     @GetMapping("/pay/{id}")
@@ -117,6 +128,6 @@ public class AppointmentWebController {
         Appointment appointment = appointmentService.getAppointmentById(id);
         appointment.setStatus("Paid");
         appointmentService.updateAppointment(id, appointment);
-        return "redirect:/datlich/history";
+        return "redirect:/history";
     }
 }

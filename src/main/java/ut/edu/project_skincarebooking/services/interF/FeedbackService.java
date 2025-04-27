@@ -10,4 +10,5 @@ public interface FeedbackService {
     Feedback createFeedback(Feedback feedback);
     Feedback updateFeedback(Long id, Feedback feedback);
     void deleteFeedback(Long id);
+    Feedback getFeedbackByAppointmentId(Long appointmentId);
 }
